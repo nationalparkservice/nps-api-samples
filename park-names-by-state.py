@@ -1,5 +1,4 @@
 import urllib.request, json
-from datetime import date
 
 # Configure API request
 state = "me"
