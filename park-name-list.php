@@ -2,7 +2,7 @@
 	// Get cURL resource
 	$curl = curl_init();
 	// Set options
-	$dataURL = 'https://developer.nps.gov/api/v0/parks?limit=600';
+	$dataURL = 'https://developer.nps.gov/api/v1/parks?limit=600';
 	curl_setopt_array($curl, array(
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_URL => $dataURL,
