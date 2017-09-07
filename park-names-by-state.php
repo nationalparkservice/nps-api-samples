@@ -3,7 +3,7 @@
 	$curl = curl_init();
 	// Set options
 	$state = 'me';
-	$dataURL = 'https://developer.nps.gov/api/v0/parks?stateCode=' . $state;
+	$dataURL = 'https://developer.nps.gov/api/v1/parks?stateCode=' . $state;
 	curl_setopt_array($curl, array(
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_URL => $dataURL,
