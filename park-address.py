@@ -2,7 +2,7 @@ import urllib.request, json
 
 # Configure API request
 park = "acad"
-endpoint = "https://developer.nps.gov/api/v0/parks?parkCode=" + park + "&fields=addresses"
+endpoint = "https://developer.nps.gov/api/v1/parks?parkCode=" + park + "&fields=addresses"
 HEADERS = {"Authorization":"INSERT-API-KEY-HERE"}
 req = urllib.request.Request(endpoint,headers=HEADERS)
 
