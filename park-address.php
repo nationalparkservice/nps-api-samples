@@ -3,7 +3,7 @@
 	$curl = curl_init();
 	// Set options
 	$park = 'acad';
-	$dataURL = 'https://developer.nps.gov/api/v0/parks?parkCode=' . $park . "&fields=addresses";
+	$dataURL = 'https://developer.nps.gov/api/v1/parks?parkCode=' . $park . "&fields=addresses";
 	curl_setopt_array($curl, array(
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_URL => $dataURL,
