@@ -184,10 +184,7 @@
           "200": {
             "description": "successful operation",
             "schema": {
-              "type": "array",
-              "items": {
                 "$ref": "#/definitions/Activity"
-              }
             }
           },
           "400": {
@@ -259,10 +256,7 @@
           "200": {
             "description": "successful operation",
             "schema": {
-              "type": "array",
-              "items": {
                 "$ref": "#/definitions/ActivityPark"
-              }
             }
           },
           "400": {
