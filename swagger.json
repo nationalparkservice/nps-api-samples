@@ -2862,7 +2862,7 @@
       "properties": {
         "total": {
           "type": "string",
-          "example": 7934
+          "example": "7934"
         },
         "data": {
           "type": "array",
@@ -2946,10 +2946,21 @@
                 "description": "geolocation coordinates"
               },
               "latitude": {
-                "type": "number"
+                "type": "number",
+                "x-nullable": true
               },
               "longitude": {
-                "type": "number"
+                "type": "number",
+                "x-nullable": true
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "credit": {
+                "type": "string"
               }
             },
             "example": {
@@ -2997,193 +3008,173 @@
       "properties": {
         "total": {
           "type": "string",
-          "example": 509
+          "example": "665"
         },
         "data": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "accessibility": {
-                "type": "object",
-                "description": "Detailed information about accessibility in the campground",
-                "properties": {
-                  "wheelchairaccess": {
-                    "type": "string"
-                  },
-                  "internetinfo": {
-                    "type": "string"
-                  },
-                  "rvallowed": {
-                    "type": "string"
-                  },
-                  "cellphoneinfo": {
-                    "type": "string"
-                  },
-                  "firestovepolicy": {
-                    "type": "string"
-                  },
-                  "rvmaxlength": {
-                    "type": "string"
-                  },
-                  "additionalinfo": {
-                    "type": "string"
-                  },
-                  "trailermaxlength": {
-                    "type": "string"
-                  },
-                  "adainfo": {
-                    "type": "string"
-                  },
-                  "rvinfo": {
-                    "type": "string"
-                  },
-                  "accessroads": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "trailerallowed": {
-                    "type": "string"
-                  },
-                  "classifications": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  }
-                }
+              "id": {
+                "type": "string",
+                "description": "Campground identification string",
+                "example": "C4CB1781-C59F-4065-AFE3-F7A327B075A2"
               },
-              "addresses": {
+              "url": {
+                "type": "string",
+                "description": "Link to more information about the campground",
+                "example": "https://www.nps.gov/pais/planyourvisit/bird-island-basin-campground.htm"
+              },
+              "name": {
+                "type": "string",
+                "description": "Campground name",
+                "example": "Bird Island Basin Campground"
+              },
+              "parkCode": {
+                "type": "string",
+                "description": "A variable width character code used to identify a specific park",
+                "example": "pais"
+              },
+              "description": {
+                "type": "string",
+                "description": "General description of the campground",
+                "example": "Bird Island Basin lies along Laguna Madre with easy access for fishing, birding, windsurfing, and kayaking."
+              },
+              "latitude": {
+                "type": "string",
+                "example": "27.466794"
+              },
+              "longitude": {
+                "type": "string",
+                "example": "-97.313693"
+              },
+              "latLong": {
+                "type": "string",
+                "description": "Campground GPS coordinates",
+                "example": "{lat:27.466794, lng:-97.313693}"
+              },
+              "audioDescription": {
+                "type": "string",
+                "description": "Audio description of the campground",
+                "example": "Turn right from the main park road at the Bird Island Basin sign."
+              },
+              "isPassportStampLocation": {
+                "type": "string",
+                "description": "Indicates whether this campground is a passport stamp location",
+                "example": "0"
+              },
+              "passportStampLocationDescription": {
+                "type": "string",
+                "description": "Information about the nearest passport stamp location",
+                "example": "Visit Hole-in-the-Wall Information Center for nearest Passport Stamp."
+              },
+              "passportStampImages": {
                 "type": "array",
-                "description": "Campground addresses (physical and mailing)",
+                "description": "Images associated with the passport stamp location",
                 "items": {
-                  "type": "object",
-                  "properties": {
-                    "postalCode": {
-                      "type": "string"
-                    },
-                    "city": {
-                      "type": "string"
-                    },
-                    "stateCode": {
-                      "type": "string"
-                    },
-                    "countryCode": {
-                      "type": "string",
-                      "example": "US"
-                    },
-                    "provinceTerritoryCode": {
-                      "type": "string",
-                      "example": "NB"
-                    },
-                    "line1": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "type": "string",
-                      "enum": [
-                        "Physical",
-                        "Mailing"
-                      ]
-                    },
-                    "line3": {
-                      "type": "string"
-                    },
-                    "line2": {
-                      "type": "string"
-                    }
-                  }
-                }
+                  "type": "object"
+                },
+                "example": []
+              },
+              "geometryPoiId": {
+                "type": "string",
+                "description": "Id for Geometry Point of Interest",
+                "example": "958187A4-DF58-4561-9043-364EC62231DA"
+              },
+              "reservationInfo": {
+                "type": "string",
+                "description": "General information about the reservation process, if applicable",
+                "example": "Reservations are required."
+              },
+              "reservationUrl": {
+                "type": "string",
+                "description": "Link to website where reservations can be made",
+                "example": "https://www.recreation.gov/camping/campgrounds/10332661"
+              },
+              "regulationsurl": {
+                "type": "string",
+                "description": "Link to additional information about campground regulations, if available",
+                "example": "http://www.nps.gov/moja/learn/management/lawsandpolicies.htm"
+              },
+              "regulationsOverview": {
+                "type": "string",
+                "description": "Information about campground regulations",
+                "example": "Groups of 25 or more people and/or 7 or more vehicles are required to obtain a special use permit."
               },
               "amenities": {
                 "type": "object",
-                "description": "Detailed information about amenities available in the campground.",
+                "description": "Detailed information about amenities available in the campground",
                 "properties": {
-                  "trashrecyclingcollection": {
-                    "type": "string"
+                  "trashRecyclingCollection": {
+                    "type": "string",
+                    "example": "Yes - year round"
                   },
                   "toilets": {
                     "type": "array",
                     "items": {
                       "type": "string"
-                    }
+                    },
+                    "example": [
+                      "Vault Toilets - year round"
+                    ]
                   },
-                  "internetconnectivity": {
-                    "type": "string"
+                  "internetConnectivity": {
+                    "type": "string",
+                    "example": "No"
                   },
                   "showers": {
                     "type": "array",
                     "items": {
                       "type": "string"
-                    }
+                    },
+                    "example": [
+                      "None"
+                    ]
                   },
-                  "cellphonereception": {
-                    "type": "string"
+                  "cellPhoneReception": {
+                    "type": "string",
+                    "example": "No"
                   },
                   "laundry": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "No"
                   },
                   "amphitheater": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "No"
                   },
-                  "dumpstation": {
-                    "type": "string"
+                  "dumpStation": {
+                    "type": "string",
+                    "example": "No"
                   },
-                  "campstore": {
-                    "type": "string"
+                  "campStore": {
+                    "type": "string",
+                    "example": "No"
                   },
-                  "stafforvolunteerhostonsite": {
-                    "type": "string"
+                  "staffOrVolunteerHostOnsite": {
+                    "type": "string",
+                    "example": "Yes - seasonal"
                   },
-                  "potablewater": {
+                  "potableWater": {
                     "type": "array",
                     "items": {
                       "type": "string"
-                    }
+                    },
+                    "example": [
+                      "No water"
+                    ]
                   },
-                  "iceavailableforsale": {
-                    "type": "string"
+                  "iceAvailableForSale": {
+                    "type": "string",
+                    "example": "No"
                   },
-                  "firewoodforsale": {
-                    "type": "string"
-                  },
-                  "ampitheater": {
-                    "type": "string"
+                  "firewoodForSale": {
+                    "type": "string",
+                    "example": "No"
                   },
                   "foodStorageLockers": {
-                    "type": "string"
-                  }
-                }
-              },
-              "campsites": {
-                "type": "object",
-                "description": "Detailed information about campsites",
-                "properties": {
-                  "other": {
-                    "type": "string"
-                  },
-                  "group": {
-                    "type": "string"
-                  },
-                  "horse": {
-                    "type": "string"
-                  },
-                  "totalsites": {
-                    "type": "string"
-                  },
-                  "tentonly": {
-                    "type": "string"
-                  },
-                  "electricalhookups": {
-                    "type": "string"
-                  },
-                  "rvonly": {
-                    "type": "string"
-                  },
-                  "walkboatto": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "No"
                   }
                 }
               },
@@ -3197,13 +3188,16 @@
                       "type": "object",
                       "properties": {
                         "phoneNumber": {
-                          "type": "string"
+                          "type": "string",
+                          "example": "3619498068"
                         },
                         "description": {
-                          "type": "string"
+                          "type": "string",
+                          "example": ""
                         },
                         "extension": {
-                          "type": "string"
+                          "type": "string",
+                          "example": ""
                         },
                         "type": {
                           "type": "string",
@@ -3211,7 +3205,8 @@
                             "Voice",
                             "Fax",
                             "TTY"
-                          ]
+                          ],
+                          "example": "Voice"
                         }
                       }
                     }
@@ -3221,68 +3216,369 @@
                     "items": {
                       "type": "object",
                       "properties": {
-                        "emailAddress": {
-                          "type": "string"
-                        },
                         "description": {
-                          "type": "string"
+                          "type": "string",
+                          "example": ""
+                        },
+                        "emailAddress": {
+                          "type": "string",
+                          "example": "pais_visitor_center@nps.gov"
                         }
                       }
                     }
                   }
                 }
               },
-              "description": {
-                "type": "string",
-                "description": "General description of the campground"
+              "fees": {
+                "type": "array",
+                "description": "Information about the cost of camping",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "cost": {
+                      "type": "string",
+                      "example": "8.00"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "In addition to the park entrance fee, a nightly campground fee is required."
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "Standard Tent or RV Site"
+                    }
+                  }
+                }
               },
-              "directionsoverview": {
+              "directionsOverview": {
                 "type": "string",
-                "description": "General overview of how to get to the campground"
+                "description": "General overview of how to get to the campground",
+                "example": "From the park entrance station, travel south on Park Road 22 for 0.8 miles."
               },
               "directionsUrl": {
                 "type": "string",
-                "description": "Link to page, if available, that provides additional detail on getting to the campground"
+                "description": "Link to page, if available, that provides additional detail on getting to the campground",
+                "example": "http://www.nps.gov/pais/planyourvisit/directions.htm"
               },
-              "fees": {
+              "operatingHours": {
                 "type": "array",
+                "description": "Hours and seasons when the campground is open or closed",
                 "items": {
-                  "type": "string"
-                },
-                "description": "Information about the cost of camping"
+                  "type": "object",
+                  "properties": {
+                    "exceptions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "exceptionHours": {
+                            "type": "object",
+                            "properties": {
+                              "sunday": {
+                                "type": "string",
+                                "example": "All Day"
+                              },
+                              "monday": {
+                                "type": "string",
+                                "example": "All Day"
+                              },
+                              "tuesday": {
+                                "type": "string",
+                                "example": "All Day"
+                              },
+                              "wednesday": {
+                                "type": "string",
+                                "example": "All Day"
+                              },
+                              "thursday": {
+                                "type": "string",
+                                "example": "All Day"
+                              },
+                              "friday": {
+                                "type": "string",
+                                "example": "All Day"
+                              },
+                              "saturday": {
+                                "type": "string",
+                                "example": "All Day"
+                              }
+                            }
+                          },
+                          "startDate": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "2027-06-01"
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Partial Summer Closure"
+                          },
+                          "endDate": {
+                            "type": "string",
+                            "format": "date",
+                            "example": "2027-08-28"
+                          }
+                        }
+                      }
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Campgrounds are open 24 hours a day."
+                    },
+                    "standardHours": {
+                      "type": "object",
+                      "properties": {
+                        "sunday": {
+                          "type": "string",
+                          "example": "All Day"
+                        },
+                        "monday": {
+                          "type": "string",
+                          "example": "All Day"
+                        },
+                        "tuesday": {
+                          "type": "string",
+                          "example": "All Day"
+                        },
+                        "wednesday": {
+                          "type": "string",
+                          "example": "All Day"
+                        },
+                        "thursday": {
+                          "type": "string",
+                          "example": "All Day"
+                        },
+                        "friday": {
+                          "type": "string",
+                          "example": "All Day"
+                        },
+                        "saturday": {
+                          "type": "string",
+                          "example": "All Day"
+                        }
+                      }
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Black Rock Campground"
+                    }
+                  }
+                }
               },
-              "geometryPoiId": {
-                "type": "string",
-                "description": "Id for Geometry Point of Interest",
-                "example": "8793be28-0d54-493f-8556-877e7ecbe937"
-              },
-              "id": {
-                "type": "string",
-                "description": "Campground identification string"
+              "addresses": {
+                "type": "array",
+                "description": "Campground addresses (physical and mailing)",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "postalCode": {
+                      "type": "string",
+                      "example": "78418"
+                    },
+                    "city": {
+                      "type": "string",
+                      "example": "Corpus Christi"
+                    },
+                    "stateCode": {
+                      "type": "string",
+                      "example": "TX"
+                    },
+                    "countryCode": {
+                      "type": "string",
+                      "example": "US"
+                    },
+                    "provinceTerritoryCode": {
+                      "type": "string",
+                      "example": ""
+                    },
+                    "line1": {
+                      "type": "string",
+                      "example": "Padre Island National Seashore"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "Physical",
+                        "Mailing"
+                      ],
+                      "example": "Physical"
+                    },
+                    "line3": {
+                      "type": "string",
+                      "example": ""
+                    },
+                    "line2": {
+                      "type": "string",
+                      "example": "20420 Park Road 22"
+                    }
+                  }
+                }
               },
               "images": {
                 "type": "array",
+                "description": "Campground images",
                 "items": {
-                  "type": "string"
-                },
-                "description": "Campground images"
+                  "type": "object",
+                  "properties": {
+                    "credit": {
+                      "type": "string",
+                      "example": "NPS photo"
+                    },
+                    "crops": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "aspectratio": {
+                            "type": "integer",
+                            "example": 3
+                          },
+                          "url": {
+                            "type": "string",
+                            "example": "https://www.nps.gov/common/uploads/cropped_image/primary/example.jpeg"
+                          }
+                        }
+                      }
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "Converted Schoolies parked at BIB CG"
+                    },
+                    "altText": {
+                      "type": "string",
+                      "example": "Three converted school buses are parked in a row at the campground."
+                    },
+                    "caption": {
+                      "type": "string",
+                      "example": "Converted school buses are parked at Bird Island Basin Campground."
+                    },
+                    "url": {
+                      "type": "string",
+                      "example": "https://www.nps.gov/common/uploads/structured_data/3BB84171-95A1-7F40-EF558F390842E8F6.jpg"
+                    }
+                  }
+                }
               },
-              "lastIndexedDate": {
+              "weatherOverview": {
                 "type": "string",
-                "description": "When this match was last indexed"
+                "description": "General description of the weather in the campground over the course of a year",
+                "example": "Year-round, wind speed ranges from 5-25 miles per hour."
               },
-              "latLong": {
+              "numberOfSitesReservable": {
                 "type": "string",
-                "description": "Campground GPS cordinates",
-                "example": "{lat:63.4574408, lng:-150.8612003}"
+                "description": "Number of sites that can be booked in advance",
+                "example": "0"
               },
-              "latitude": {
+              "numberOfSitesFirstComeFirstServe": {
                 "type": "string",
-                "example": "63.4574408"
+                "description": "Number of sites that are first come, first served",
+                "example": "34"
               },
-              "longitude": {
-                "type": "string",
-                "example": "-150.8612003"
+              "campsites": {
+                "type": "object",
+                "description": "Detailed information about campsites",
+                "properties": {
+                  "totalSites": {
+                    "type": "string",
+                    "example": "34"
+                  },
+                  "group": {
+                    "type": "string",
+                    "example": "0"
+                  },
+                  "horse": {
+                    "type": "string",
+                    "example": "0"
+                  },
+                  "tentOnly": {
+                    "type": "string",
+                    "example": "10"
+                  },
+                  "electricalHookups": {
+                    "type": "string",
+                    "example": "0"
+                  },
+                  "rvOnly": {
+                    "type": "string",
+                    "example": "0"
+                  },
+                  "walkBoatTo": {
+                    "type": "string",
+                    "example": "0"
+                  },
+                  "other": {
+                    "type": "string",
+                    "example": "0"
+                  }
+                }
+              },
+              "accessibility": {
+                "type": "object",
+                "description": "Detailed information about accessibility in the campground",
+                "properties": {
+                  "wheelchairAccess": {
+                    "type": "string",
+                    "example": "See the ADA Information for campground and site descriptions."
+                  },
+                  "internetInfo": {
+                    "type": "string",
+                    "example": "None available"
+                  },
+                  "cellPhoneInfo": {
+                    "type": "string",
+                    "example": "Do not expect cellular reception however there are limited areas where it might be available."
+                  },
+                  "fireStovePolicy": {
+                    "type": "string",
+                    "example": "There are no charcoal grills or campfire rings."
+                  },
+                  "rvAllowed": {
+                    "type": "string",
+                    "example": "1"
+                  },
+                  "rvInfo": {
+                    "type": "string",
+                    "example": "Bird Island Basin has 34 primitive designated sites for RV or tent camping."
+                  },
+                  "rvMaxLength": {
+                    "type": "string",
+                    "example": "45"
+                  },
+                  "additionalInfo": {
+                    "type": "string",
+                    "example": "The Park Store sells bags of ice, snacks, sunscreen, bug spray and other toiletries."
+                  },
+                  "trailerMaxLength": {
+                    "type": "string",
+                    "example": "0"
+                  },
+                  "adaInfo": {
+                    "type": "string",
+                    "example": "Bird Island Basin Campground does not have any designated accessible campsites."
+                  },
+                  "trailerAllowed": {
+                    "type": "string",
+                    "example": "1"
+                  },
+                  "accessRoads": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "Unpaved Roads - All vehicles OK in good weather"
+                    ]
+                  },
+                  "classifications": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "example": [
+                      "Primitive Camping Areas"
+                    ]
+                  }
+                }
               },
               "multimedia": {
                 "type": "array",
@@ -3291,333 +3587,39 @@
                   "properties": {
                     "title": {
                       "type": "string",
-                      "description": "title of multimedia asset",
-                      "example": "The Worthington Farm"
+                      "example": "Learn about the B.A.R.K. Ranger Principles "
                     },
                     "id": {
                       "type": "string",
-                      "description": "UUID for multimedia asset",
-                      "example": "4FD5B472-D6D9-43AA-9532-2AC5BF920883"
+                      "example": "6E028876-7674-4524-9B65-2CA458B985EB"
                     },
                     "type": {
                       "type": "string",
-                      "description": "the kind of asset",
-                      "example": "multimedia/videos"
+                      "example": "multimedia/video"
                     },
                     "url": {
                       "type": "string",
-                      "description": "The URL of the multimedia asset",
-                      "example": "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883              "
+                      "example": "https://www.nps.gov/media/video/view.htm?id=6E028876-7674-4524-9B65-2CA458B985EB"
                     }
                   }
                 }
               },
-              "name": {
-                "type": "string",
-                "description": "Campground name"
-              },
-              "operatingHours": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "description": "Hours and seasons when the campground is open or closed"
-              },
-              "parkCode": {
-                "type": "string",
-                "description": "A variable width character code used to identify a specific park"
-              },
-              "regulationsoverview": {
-                "type": "string",
-                "description": "Information about campground regulations"
-              },
-              "regulationsurl": {
-                "type": "string",
-                "description": "Link to additional information about campground regulations, if available"
-              },
               "relevanceScore": {
                 "type": "number",
-                "description": "The relevance score is a numeric calculation of how much your item meets the criteria of your q (query text) search. This is normally coupled with a sort value of -relevanceScore. A higher value means that your item meets the criteria of the q search with a higher frequency and accuracy."
+                "description": "The relevance score is a numeric calculation of how much the item meets query-text search criteria",
+                "example": 1
               },
-              "reservationsdescription": {
+              "lastIndexedDate": {
                 "type": "string",
-                "description": "General description of the reservation process, if applicable"
-              },
-              "reservationssitesfirstcome": {
-                "type": "string",
-                "description": "Number of sites that are first come, first served (cannot be booked in advance)"
-              },
-              "reservationssitesreservable": {
-                "type": "string",
-                "description": "Number of sites that can be booked in advance"
-              },
-              "reservationsurl": {
-                "type": "string",
-                "description": "Link to website where reservations can be made"
-              },
-              "weatheroverview": {
-                "type": "string",
-                "description": "General description of the weather in the campground over the course of a year"
+                "description": "When this match was last indexed",
+                "example": ""
               }
-            },
-            "example": [
-              {
-                "accessibility": [
-                  {
-                    "wheelchairaccess": "Some restrooms are wheelchair accessible. The campground is mainly accessed by transit bus, around half of which are wheelchair accessible.",
-                    "internetinfo": "",
-                    "rvallowed": 0,
-                    "cellphoneinfo": "",
-                    "firestovepolicy": "Open fires are prohibited at Wonder Lake Campground. Bring a camping stove of some kind to cook your meals.",
-                    "rvmaxlength": 0,
-                    "additionalinfo": "",
-                    "trailermaxlength": 0,
-                    "adainfo": "Paths between campsites vary from compact gravel to muddy, rocky surfaces. The campground is laid out with some sites on a small hill above the level of the main campground road, while others are level with or slightly downhill from the level of the road.",
-                    "rvinfo": "This is a tent-only campsite—RVs and trailers are prohibited at Wonder Lake.",
-                    "accessroads": [
-                      "Unpaved Roads - 4WD/High clearance required"
-                    ],
-                    "trailerallowed": 0,
-                    "classifications": [
-                      "Limited Development Campground"
-                    ]
-                  }
-                ],
-                "addresses": [
-                  {
-                    "postalCode": 99755,
-                    "city": "Denali Park",
-                    "stateCode": "AK",
-                    "countryCode": "US",
-                    "provinceTerritoryCode": "",
-                    "line1": "PO Box 9",
-                    "line2": "",
-                    "line3": "",
-                    "type": "Mailing"
-                  },
-                  {
-                    "postalCode": 99755,
-                    "city": "Denali Park",
-                    "stateCode": "AK",
-                    "countryCode": "US",
-                    "provinceTerritoryCode": "",
-                    "line1": "Mile 85, Denali Park Road",
-                    "line2": "",
-                    "line3": "",
-                    "type": "Physical"
-                  }
-                ],
-                "amenities": [
-                  {
-                    "trashrecyclingcollection": "Yes - seasonal",
-                    "toilets": [
-                      "Vault Toilets - year round"
-                    ],
-                    "internetconnectivity": false,
-                    "showers": [
-                      "None"
-                    ],
-                    "cellphonereception": false,
-                    "laundry": false,
-                    "amphitheater": "",
-                    "dumpstation": false,
-                    "campstore": false,
-                    "stafforvolunteerhostonsite": "Yes - seasonal",
-                    "potablewater": [
-                      "Yes - seasonal"
-                    ],
-                    "iceavailableforsale": false,
-                    "firewoodforsale": false,
-                    "ampitheater": "Yes - year round",
-                    "foodstoragelockers": "Yes - year round"
-                  }
-                ],
-                "campsites": [
-                  {
-                    "other": 0,
-                    "group": 0,
-                    "horse": 0,
-                    "totalsites": 28,
-                    "tentonly": 28,
-                    "electricalhookups": 0,
-                    "rvonly": 0,
-                    "walkboatto": 0
-                  }
-                ],
-                "contacts": [
-                  {
-                    "phoneNumbers": [
-                      {
-                        "phoneNumber": "9076839532",
-                        "description": "",
-                        "extension": "",
-                        "type": "Voice"
-                      }
-                    ]
-                  },
-                  {
-                    "emailAddresses": [
-                      {
-                        "emailAddress": "yell_visitor_services@nps.gov",
-                        "description": ""
-                      }
-                    ]
-                  }
-                ],
-                "description": "Wonder Lake Campground is at mile 85 on the Denali Park Road. It offers 28 sites, which are all tent-only.\n\nIt is the closest campground to Denali. Though separated by nearly 26 miles, the sheer size of the mountain makes it loom impressively over Wonder Lake Campground. Cloudy skies can obscure views, and mosquitoes can be fierce, but Wonder Lake on a clear day offers views that will last a lifetime. Bear-proof food lockers are available throughout the campground.",
-                "directionsoverview": "Visitors may not drive to this campground. It is only accessible for campers via specialized park buses. Be sure to book a camper bus ticket in addition to paying your campground fees.",
-                "directionsUrl": "http://www.nps.gov/dena/planyourvisit/campground-wonder.htm",
-                "fees": null,
-                "geometryPoiId": "8793be28-0d54-493f-8556-877e7ecbe937",
-                "id": 29,
-                "images": null,
-                "latLong": "{lat:63.4574408, lng:-150.8612003}",
-                "latitude": "63.4574408",
-                "longitude": "-150.8612003",
-                "multimedia": [
-                  {
-                    "title": "The Worthington Farm",
-                    "id": "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                    "type": "multimedia/videos",
-                    "url": "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883"
-                  }
-                ],
-                "name": "Wonder Lake",
-                "operatingHours": null,
-                "parkCode": "dena",
-                "regulationsoverview": null,
-                "regulationsurl": "http://www.nps.gov/dena/learn/management/lawsandpolicies.htm",
-                "relevanceScore": 1,
-                "reservationsdescription": "",
-                "reservationsitesfirstcome": "",
-                "reservationssitesreservable": "",
-                "reservationsurl": "",
-                "weatheroverview": "Wonder Lake tends to be cooler and wetter than the park entrance. Expect lows in the upper 30s or 40s each night. Daytime highs are typically in the upper 50s or 60s, though occasional sunny days can result in temps near 80. Mosquitoes are particularly bad most of the summer - bring a headnet!"
-              },
-              {
-                "accessibility": [
-                  {
-                    "wheelchairAccess": "Restrooms are wheelchair accessible.",
-                    "internetinfo": "",
-                    "rvallowed": 0,
-                    "cellphoneinfo": "",
-                    "firestovepolicy": "",
-                    "rvmaxlength": 0,
-                    "additionalinfo": "",
-                    "trailermaxlength": 0,
-                    "adainfo": "Surfaces in the campground are largely compacted gravel or native soils with roots and rocks. The path from the campground to the bus stop on the Denali Park Road is compacted gravel. Restrooms are wheelchair accessible.",
-                    "rvinfo": "This is a tent-only campground.",
-                    "accessroads": [
-                      "Unpaved Roads - 4WD/High clearance required"
-                    ],
-                    "trailerallowed": 0,
-                    "classifications": [
-                      "Primitive Camping Areas"
-                    ]
-                  }
-                ],
-                "addresses": [
-                  {
-                    "postalCode": 99755,
-                    "city": "Denali Park",
-                    "stateCode": "AK",
-                    "line1": "PO Box 9",
-                    "line2": "",
-                    "line3": "",
-                    "type": "Mailing"
-                  },
-                  {
-                    "postalCode": 99755,
-                    "city": "Denali Park",
-                    "stateCode": "AK",
-                    "line1": "Mile 85, Denali Park Road",
-                    "line2": "",
-                    "line3": "",
-                    "type": "Physical"
-                  }
-                ],
-                "amenities": [
-                  {
-                    "trashrecyclingcollection": "Yes - seasonal",
-                    "toilets": [
-                      "Vault Toilets - year round"
-                    ],
-                    "internetconnectivity": false,
-                    "showers": [
-                      "None"
-                    ],
-                    "cellphonereception": false,
-                    "laundry": false,
-                    "amphitheater": "",
-                    "dumpstation": false,
-                    "campstore": false,
-                    "stafforvolunteerhostonsite": "Yes - seasonal",
-                    "potablewater": [
-                      "Yes - seasonal"
-                    ],
-                    "iceavailableforsale": false,
-                    "firewoodforsale": false,
-                    "ampitheater": "Yes - year round",
-                    "foodstoragelockers": "Yes - year round"
-                  }
-                ],
-                "campsites": [
-                  {
-                    "other": 0,
-                    "group": 0,
-                    "horse": 0,
-                    "totalsites": 7,
-                    "tentonly": 7,
-                    "electricalhookups": 0,
-                    "rvonly": 0,
-                    "walkboatto": 0
-                  }
-                ],
-                "contacts": [
-                  {
-                    "phoneNumbers": [
-                      {
-                        "phoneNumber": "9076839532",
-                        "description": "",
-                        "extension": "",
-                        "type": "Voice"
-                      }
-                    ]
-                  },
-                  {
-                    "emailAddresses": [
-                      {
-                        "emailAddress": "yell_visitor_services@nps.gov",
-                        "description": ""
-                      }
-                    ]
-                  }
-                ],
-                "description": "Igloo Creek Campground is at mile 35 on the Park Road. It offers 7 sites, making it the smallest in Denali (along with Sanctuary River Campground, which also has 7 sites).\n\nIgloo is tent-only - you will not find any RVs or other vehicles in this campground. It is accessible by camper bus. The bus stop is a short walk from the camp sites - less than 50 yards (meters).\n\nAdvance reservations are not possible at this campground. Visitors may only book a site upon arriving in the park.",
-                "directionsoverview": "This campground can only be reached by bus. Be sure to book a camper bus ticket when purchasing a stay at Igloo Creek Campground.",
-                "directionsUrl": "http://www.nps.gov/dena/planyourvisit/campground-igloo.htm",
-                "fees": null,
-                "id": 34,
-                "images": null,
-                "latLong": "{lat:63.6117723, lng:-149.570902}",
-                "name": "Igloo Creek",
-                "operatingHours": null,
-                "parkCode": "dena",
-                "regulationsoverview": null,
-                "regulationsurl": "http://www.nps.gov/dena/learn/management/lawsandpolicies.htm",
-                "relevanceScore": 1,
-                "reservationsdescription": "",
-                "reservationsitesfirstcome": "",
-                "reservationssitesreservable": "",
-                "reservationsurl": "",
-                "weatheroverview": "We recommend you bring a sleeping bag rated to 20 degrees F. Expect rain, though sunny days do occur periodically throughout the summer. Highs are usually in the 60s, though sometimes can reach the low 80s. Snow is possible any month of the year, however."
-              }
-            ]
+            }
           }
         },
         "limit": {
           "type": "string",
-          "example": "50"
+          "example": "5"
         },
         "start": {
           "type": "string",
@@ -3651,7 +3653,7 @@
                 "type": "string",
                 "description": "Name of event contact"
               },
-              "contacttelephoneNumber": {
+              "contacttelephonenumber": {
                 "type": "string",
                 "description": "Phone number for event contact"
               },
@@ -3766,23 +3768,24 @@
                 "description": "URL for more information about the event"
               },
               "isallday": {
-                "type": "string",
+                "type": "boolean",
                 "description": "The event takes place all day"
               },
               "isfree": {
-                "type": "string",
+                "type": "boolean",
                 "description": "The event is free"
               },
               "isrecurring": {
-                "type": "string",
+                "type": "boolean",
                 "description": "The event has recurrence"
               },
               "isregresrequired": {
-                "type": "string",
+                "type": "boolean",
                 "description": "The event requires registration or reservation"
               },
               "latitude": {
-                "type": "string",
+                "type": "number",
+                "x-nullable": true,
                 "description": "The latitude of the event location"
               },
               "location": {
@@ -3790,7 +3793,8 @@
                 "description": "The location the event takes place"
               },
               "longitude": {
-                "type": "string",
+                "type": "number",
+                "x-nullable": true,
                 "description": "The longitude of the event location"
               },
               "organizationname": {
@@ -3857,14 +3861,14 @@
                   "type": "object",
                   "properties": {
                     "sunrisestart": {
-                      "type": "string",
+                      "type": "boolean",
                       "description": "Event begins at sunrise",
-                      "example": "true"
+                      "example": true
                     },
                     "sunsetend": {
-                      "type": "string",
+                      "type": "boolean",
                       "description": "Event ends at sunset",
-                      "example": "false"
+                      "example": false
                     },
                     "timestart": {
                       "type": "string",
