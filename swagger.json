@@ -4110,7 +4110,7 @@
                 "description": "",
                 "example": "A park entrance pass is required year-round at Acadia National Park. All vehicles must display a pass clearly visible through the windshield. Display federal lands passes, such as annual and military passes, on your dashboard with the signature and expiration date facing up. Passes are non-transferable and passholder must be present. A separate vehicle reservation is also required to drive Cadillac Summit Road from mid-May into October. Vehicle reservations are only sold online in advance and are not available for purchase at the park. In addition to NPS locations in visitor centers and campgrounds, entrance passes are also available for purchase in-person at third-party sellers. These locations are not operated by the NPS and do not offer federal lands passes -- * Jordan Pond Gift Shop * Acadia Regional Chamber of Commerce at Thompson Island * Bar Harbor Chamber of Commerce, Cottage Street * Ellsworth Chamber of Commerce * Mount Desert Chamber of Commerce * Southwest Harbor/Tremont Chamber of Commerce"
               },
-              "entrancePassesDescription": {
+              "entrancePassDescription": {
                 "type": "string",
                 "description": "",
                 "example": "A park entrance pass is required year-round. All vehicles must display a pass clearly visible through the windshield. Display federal lands passes, such as annual and military passes, on your dashboard with the signature and expiration date facing up. Passes are non-transferable and passholder must be present."
@@ -4140,8 +4140,9 @@
                         },
                         "holiday": {
                           "type": "string",
-                          "description": "",
-                          "example": ""
+                          "description": "Holiday name when the fee period is defined by a holiday.",
+                          "example": null,
+                          "x-nullable": true
                         },
                         "month": {
                           "type": "integer",
@@ -4200,8 +4201,9 @@
                         },
                         "holiday": {
                           "type": "string",
-                          "description": "",
-                          "example": ""
+                          "description": "Holiday name when the fee period is defined by a holiday.",
+                          "example": null,
+                          "x-nullable": true
                         },
                         "month": {
                           "type": "integer",
@@ -4383,13 +4385,31 @@
                 "example": "Custom Fee Link Text"
               },
               "contentOrderOrdinals": {
-                "type": "string",
-                "enum": [
-                  "entranceFee",
-                  "timedEntry",
-                  "paidParking",
-                  "customFee"
-                ]
+                "type": "object",
+                "properties": {
+                  "entranceFee": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "timedEntry": {
+                    "type": "integer",
+                    "example": 2
+                  },
+                  "paidParking": {
+                    "type": "integer",
+                    "example": 3
+                  },
+                  "customFee": {
+                    "type": "integer",
+                    "example": 4
+                  }
+                },
+                "example": {
+                  "entranceFee": 1,
+                  "timedEntry": 2,
+                  "paidParking": 3,
+                  "customFee": 4
+                }
               },
               "relatedMultiSitePasses": {
                 "type": "array",
@@ -4528,23 +4548,23 @@
           "items": {
             "type": "object",
             "properties": {
-              "commoncore": {
+              "commonCore": {
                 "type": "object",
                 "description": "Educational standards that apply to this lesson",
                 "properties": {
-                  "statestandards": {
+                  "stateStandards": {
                     "type": "string"
                   },
-                  "mathstandards": {
+                  "mathStandards": {
                     "type": "array",
                     "items": {
                       "type": "string"
                     }
                   },
-                  "additionalstandards": {
+                  "additionalStandards": {
                     "type": "string"
                   },
-                  "elastandards": {
+                  "elaStandards": {
                     "type": "array",
                     "items": {
                       "type": "string"
@@ -4556,7 +4576,7 @@
                 "type": "string",
                 "description": "Time it takes to peform the lesson"
               },
-              "gradelevel": {
+              "gradeLevel": {
                 "type": "string",
                 "description": "Grade level of students at which this lesson is aimed"
               },
@@ -4572,13 +4592,16 @@
                   "type": "string"
                 }
               },
-              "questionobjective": {
+              "questionObjective": {
                 "type": "string",
                 "description": "Objective of the lesson or the question student should be able to answer at the end of the lesson"
               },
               "subject": {
-                "type": "string",
+                "type": "array",
                 "description": "Broad subject the lesson falls under= literacy and language arts, math, science, or social studies"
+                ,"items": {
+                  "type": "string"
+                }
               },
               "title": {
                 "type": "string",
@@ -4591,10 +4614,9 @@
             },
             "example": [
               {
-                "commoncore": [
-                  {
-                    "statestandards": "State: Nebraska\t\nSubject: History        \nGrade Level:  8th  \t\n\n State Standards:  8.1.2, 8.1.5, 8.4.2",
-                    "mathstandards": [
+                "commonCore": {
+                    "stateStandards": "State: Nebraska\t\nSubject: History        \nGrade Level:  8th  \t\n\n State Standards:  8.1.2, 8.1.5, 8.4.2",
+                    "mathStandards": [
                       "6-8.RH.1",
                       "6-8.RH.2",
                       "6-8.RH.3",
@@ -4606,8 +4628,8 @@
                       "6-8.RH.9",
                       "6-8.RH.10"
                     ],
-                    "additionalstandards": "",
-                    "elastandards": [
+                    "additionalStandards": "",
+                    "elaStandards": [
                       "6-8.RH.1",
                       "6-8.RH.2",
                       "6-8.RH.3",
@@ -4619,16 +4641,17 @@
                       "6-8.RH.9",
                       "6-8.RH.10"
                     ]
-                  }
-                ],
+                },
                 "duration": "60 Minutes",
-                "gradelevel": "Middle School: Sixth Grade through Eighth Grade",
-                "id": 4837942,
+                "gradeLevel": "Middle School: Sixth Grade through Eighth Grade",
+                "id": "4837942",
                 "parks": [
                   "home"
                 ],
-                "questionobjective": "In \"Dawes Act,\" students will look at the similarities and differences between the Homestead Act and the Dawes Act by analyzing primary sources. \nIn this lesson, students will answer the following essential question: What are the cause and effects of the Dawes Act?",
-                "subject": "Social Studies",
+                "questionObjective": "In \"Dawes Act,\" students will look at the similarities and differences between the Homestead Act and the Dawes Act by analyzing primary sources. \nIn this lesson, students will answer the following essential question: What are the cause and effects of the Dawes Act?",
+                "subject": [
+                  "Social Studies"
+                ],
                 "title": "Dawes Act",
                 "url": "https://www.nps.gov/teachers/classrooms/dawact.htm"
               },
@@ -4667,447 +4690,119 @@
     },
     "MapdataParkboundary": {
       "type": "object",
-      "example": {
-        "type": "Feature",
-        "id": "abli",
-        "geometry": {
-          "type": "MultiPolygon",
-          "coordinates": [
-            [
-              [
-                [
-                  -85.6371062169999,
-                  37.611460235
-                ],
-                [
-                  -85.636381755,
-                  37.612077341
-                ],
-                [
-                  -85.635495971,
-                  37.611435726
-                ],
-                [
-                  -85.637544162,
-                  37.609820461
-                ],
-                [
-                  -85.639230663,
-                  37.6055079000001
-                ],
-                [
-                  -85.639563382,
-                  37.6057470320001
-                ],
-                [
-                  -85.639534163,
-                  37.605803629
-                ],
-                [
-                  -85.6393128509999,
-                  37.606437891
-                ],
-                [
-                  -85.639168021,
-                  37.6070044410001
-                ],
-                [
-                  -85.639057081,
-                  37.607402032
-                ],
-                [
-                  -85.63888826,
-                  37.6079143470001
-                ],
-                [
-                  -85.638666248,
-                  37.6085366360001
-                ],
-                [
-                  -85.638037515,
-                  37.6102791430001
-                ],
-                [
-                  -85.637961563,
-                  37.6104706310001
-                ],
-                [
-                  -85.6378649279999,
-                  37.6106561280001
-                ],
-                [
-                  -85.6377840439999,
-                  37.6107835820001
-                ],
-                [
-                  -85.637499176,
-                  37.611094957
-                ],
-                [
-                  -85.6371062169999,
-                  37.611460235
-                ],
-                [
-                  -85.6371062169999,
-                  37.611460235
-                ]
-              ]
-            ],
-            [
-              [
-                [
-                  -85.637193299,
-                  37.6127633200001
-                ],
-                [
-                  -85.636878101,
-                  37.6126500880001
-                ],
-                [
-                  -85.6366623549999,
-                  37.6126334380001
-                ],
-                [
-                  -85.636390609,
-                  37.6123834220001
-                ],
-                [
-                  -85.636619965,
-                  37.6121718360001
-                ],
-                [
-                  -85.6372642709999,
-                  37.6115667400001
-                ],
-                [
-                  -85.637656759,
-                  37.6112019030001
-                ],
-                [
-                  -85.637963155,
-                  37.610866469
-                ],
-                [
-                  -85.638051106,
-                  37.610728405
-                ],
-                [
-                  -85.638154948,
-                  37.6105297300001
-                ],
-                [
-                  -85.638236636,
-                  37.610324614
-                ],
-                [
-                  -85.638865422,
-                  37.608581863
-                ],
-                [
-                  -85.639088087,
-                  37.6079577400001
-                ],
-                [
-                  -85.639258432,
-                  37.6074407940001
-                ],
-                [
-                  -85.639370621,
-                  37.6070387170001
-                ],
-                [
-                  -85.6395152,
-                  37.606473147
-                ],
-                [
-                  -85.639616319,
-                  37.6061303440001
-                ],
-                [
-                  -85.6396376289999,
-                  37.6060703140001
-                ],
-                [
-                  -85.6397266829999,
-                  37.6058644
-                ],
-                [
-                  -85.639900131,
-                  37.6059675350001
-                ],
-                [
-                  -85.6402003009999,
-                  37.6058025290001
-                ],
-                [
-                  -85.6403918189999,
-                  37.6058383240001
-                ],
-                [
-                  -85.642589379,
-                  37.606927199
-                ],
-                [
-                  -85.643429237,
-                  37.6080961700001
-                ],
-                [
-                  -85.646001681,
-                  37.6084527730001
-                ],
-                [
-                  -85.646439887,
-                  37.6081934690001
-                ],
-                [
-                  -85.648967179,
-                  37.6086991060001
-                ],
-                [
-                  -85.649181228,
-                  37.60954595
-                ],
-                [
-                  -85.649169655,
-                  37.6111267110001
-                ],
-                [
-                  -85.648763806,
-                  37.6114895330001
-                ],
-                [
-                  -85.64824328,
-                  37.6120663200001
-                ],
-                [
-                  -85.648817433,
-                  37.612874634
-                ],
-                [
-                  -85.650380245,
-                  37.6152926340001
-                ],
-                [
-                  -85.652150768,
-                  37.6180041850001
-                ],
-                [
-                  -85.652197396,
-                  37.618329363
-                ],
-                [
-                  -85.6514839069999,
-                  37.6179431630001
-                ],
-                [
-                  -85.6507839829999,
-                  37.6178242170001
-                ],
-                [
-                  -85.65025421,
-                  37.6175852980001
-                ],
-                [
-                  -85.650112086,
-                  37.6178424980001
-                ],
-                [
-                  -85.648830327,
-                  37.617738107
-                ],
-                [
-                  -85.647848959,
-                  37.6179112290001
-                ],
-                [
-                  -85.6474889689999,
-                  37.6180273910001
-                ],
-                [
-                  -85.647245964,
-                  37.618135533
-                ],
-                [
-                  -85.646775141,
-                  37.6179090140001
-                ],
-                [
-                  -85.645749453,
-                  37.6166885210001
-                ],
-                [
-                  -85.645479397,
-                  37.6162008650001
-                ],
-                [
-                  -85.644911033,
-                  37.61534119
-                ],
-                [
-                  -85.644662293,
-                  37.6152134050001
-                ],
-                [
-                  -85.644143594,
-                  37.6149841640001
-                ],
-                [
-                  -85.642667254,
-                  37.6138255490001
-                ],
-                [
-                  -85.641578383,
-                  37.613087314
-                ],
-                [
-                  -85.640816602,
-                  37.6127168190001
-                ],
-                [
-                  -85.6402558949999,
-                  37.6136692480001
-                ],
-                [
-                  -85.6395901879999,
-                  37.6136133520001
-                ],
-                [
-                  -85.639359562,
-                  37.6136493380001
-                ],
-                [
-                  -85.638728804,
-                  37.613325693
-                ],
-                [
-                  -85.638207887,
-                  37.6130715150001
-                ],
-                [
-                  -85.637193299,
-                  37.6127633200001
-                ],
-                [
-                  -85.637193299,
-                  37.6127633200001
-                ]
-              ]
-            ],
-            [
-              [
-                [
-                  -85.739319133,
-                  37.531169359
-                ],
-                [
-                  -85.740773721,
-                  37.5320971150001
-                ],
-                [
-                  -85.734873138,
-                  37.533780898
-                ],
-                [
-                  -85.730639853,
-                  37.5353625870001
-                ],
-                [
-                  -85.73055096,
-                  37.5353998410001
-                ],
-                [
-                  -85.7315961639999,
-                  37.535961075
-                ],
-                [
-                  -85.731596084,
-                  37.5362925440001
-                ],
-                [
-                  -85.731061192,
-                  37.5367402210001
-                ],
-                [
-                  -85.729570557,
-                  37.5367065150001
-                ],
-                [
-                  -85.7290594689999,
-                  37.5294924780001
-                ],
-                [
-                  -85.7349807589999,
-                  37.5301228940001
-                ],
-                [
-                  -85.7379587,
-                  37.530304288
-                ],
-                [
-                  -85.738799762,
-                  37.5293059380001
-                ],
-                [
-                  -85.7402771659999,
-                  37.5300512950001
-                ],
-                [
-                  -85.739319133,
-                  37.531169359
-                ],
-                [
-                  -85.739319133,
-                  37.531169359
-                ]
-              ]
-            ]
-          ]
-        }
-      },
+      "description": "GeoJSON FeatureCollection containing the park boundary.",
       "properties": {
         "type": {
           "type": "string",
-          "example": "Feature"
+          "example": "FeatureCollection"
         },
-        "id": {
-          "type": "string",
-          "example": "abli"
-        },
-        "properties": {
-          "type": "object",
-          "properties": {
-            "parkClass": {
-              "type": "string",
-              "example": "legislative and mask fill"
-            }
-          }
-        },
-        "geometry": {
-          "type": "object",
-          "properties": {
-            "coordinates": {
-              "type": "array",
-              "items": {
-                "type": "array",
-                "items": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "0": {
-                        "type": "number"
-                      },
-                      "1": {
-                        "type": "number"
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "example": "Feature"
+              },
+              "id": {
+                "type": "string",
+                "example": "9a08b873-4ce8-4175-2bd2-08d4c7ad36e2"
+              },
+              "geometry": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "MultiPolygon"
+                  },
+                  "coordinates": {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          }
+                        }
                       }
                     }
                   }
                 }
+              },
+              "properties": {
+                "type": "object",
+                "properties": {
+                  "alternateName": {
+                    "type": "string",
+                    "example": "Abraham Lincoln Birthplace"
+                  },
+                  "designationId": {
+                    "type": "string",
+                    "example": "1d936e11-1d6e-4402-e80d-08d4c7ad3656"
+                  },
+                  "designation": {
+                    "type": "object",
+                    "properties": {
+                      "abbreviation": {
+                        "type": "string",
+                        "example": "NHP"
+                      },
+                      "parkDesignationCategoryId": {
+                        "type": "string",
+                        "example": "77d93696-1fee-4033-841d-5140d70e867c"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "National Historical Park"
+                      },
+                      "description": {
+                        "type": "string",
+                        "example": "National Historical Park"
+                      },
+                      "id": {
+                        "type": "string",
+                        "example": "1d936e11-1d6e-4402-e80d-08d4c7ad3656"
+                      }
+                    }
+                  },
+                  "fullName": {
+                    "type": "string",
+                    "example": "Abraham Lincoln Birthplace National Historical Park"
+                  },
+                  "aliases": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "parkId": {
+                          "type": "string",
+                          "example": "9a08b873-4ce8-4175-2bd2-08d4c7ad36e2"
+                        },
+                        "current": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "ABLI"
+                        },
+                        "id": {
+                          "type": "string",
+                          "example": "64c8dc08-2782-b508-9933-118689347282"
+                        }
+                      }
+                    }
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "Abraham Lincoln Birthplace"
+                  }
+                }
               }
-            },
-            "type": {
-              "type": "string",
-              "example": "MultiPolygon"
             }
           }
         }
@@ -5167,6 +4862,18 @@
                     "designation": {
                       "type": "string",
                       "example": "National Park"
+                    },
+                    "fullName": {
+                      "type": "string",
+                      "example": "Grand Canyon National Park"
+                    },
+                    "url": {
+                      "type": "string",
+                      "example": "https://www.nps.gov/grca/index.htm"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Grand Canyon"
                     }
                   }
                 }
@@ -5190,11 +4897,13 @@
               },
               "latitude": {
                 "type": "number",
-                "example": 36.0566279811578
+                "example": 36.0566279811578,
+                "x-nullable": true
               },
               "longitude": {
                 "type": "number",
-                "example": -112.143759727478
+                "example": -112.143759727478,
+                "x-nullable": true
               },
               "geometryPoiId": {
                 "type": "string"
@@ -5217,7 +4926,9 @@
                 "type": "string"
               },
               "versions": {
-                "type": "object",
+                "type": "array",
+                "items": {
+                  "type": "object",
                 "properties": {
                   "fileSize": {
                     "type": "number",
@@ -5232,6 +4943,7 @@
                     "example": "https://www.nps.gov/nps-audiovideo/audiovideo/754f468d-0777-4647-b64b-d59c2c7803bd.mp3"
                   }
                 }
+              }
               }
             }
           }
@@ -5346,7 +5058,7 @@
                 }
               },
               "assetCount": {
-                "type": "string",
+                "type": "integer",
                 "example": 13
               },
               "constraintsInfo": {
@@ -5423,16 +5135,16 @@
                     "example": "image/jpeg"
                   },
                   "widthPixels": {
-                    "type": "string",
-                    "example": "1024"
+                    "type": "integer",
+                    "example": 1024
                   },
                   "heightPixels": {
-                    "type": "string",
-                    "example": "768"
+                    "type": "integer",
+                    "example": 768
                   },
                   "fileSizeKb": {
-                    "type": "string",
-                    "example": "147265"
+                    "type": "integer",
+                    "example": 147265
                   }
                 }
               },
@@ -5497,8 +5209,8 @@
                 "example": "Permission must be secured from the individual copyright owners to reproduce any copyrighted materials contained within this website. Digital assets without any copyright restrictions are public domain."
               },
               "ordinal": {
-                "type": "string",
-                "example": "1"
+                "type": "integer",
+                "example": 1
               }
             }
           }
@@ -5609,16 +5321,21 @@
               },
               "latitude": {
                 "type": "number",
-                "example": 25.4829769134522
+                "example": 25.4829769134522,
+                "x-nullable": true
               },
               "longitude": {
                 "type": "number",
-                "example": -80.2179336547852
+                "example": -80.2179336547852,
+                "x-nullable": true
               },
-              "audiodescription": {
+              "audioDescription": {
                 "type": "string"
               },
               "audioDescriptionUrl": {
+                "type": "string"
+              },
+              "aslVideoUrl": {
                 "type": "string"
               },
               "geometryPoiId": {
@@ -5640,7 +5357,7 @@
                 "type": "string",
                 "example": ""
               },
-              "callToActionURL": {
+              "callToActionUrl": {
                 "type": "string",
                 "example": ""
               },
@@ -5776,17 +5493,19 @@
               },
               "latitude": {
                 "type": "string",
-                "description": "The latitude of the news release location"
+                "description": "The latitude of the news release location",
+                "x-nullable": true
               },
               "longitude": {
                 "type": "string",
-                "description": "The longitude of the news release location"
+                "description": "The longitude of the news release location",
+                "x-nullable": true
               },
               "parkCode": {
                 "type": "string",
                 "description": "A variable width character code that uniquely identifies a specific park"
               },
-              "relatedOrgs": {
+              "relatedOrganizations": {
                 "type": "array",
                 "items": {
                   "type": "object",
@@ -5811,7 +5530,7 @@
                 "items": {
                   "type": "object",
                   "properties": {
-                    "state": {
+                    "states": {
                       "type": "string",
                       "example": "AR"
                     },
@@ -5838,9 +5557,15 @@
                   }
                 }
               },
-              "releasedate": {
+              "releaseDate": {
                 "type": "string",
                 "description": "Date news release was released"
+              },
+              "credit": {
+                "type": "string"
+              },
+              "lastIndexedDate": {
+                "type": "string"
               },
               "title": {
                 "type": "string",
@@ -5954,7 +5679,7 @@
                 "items": {
                   "type": "object",
                   "properties": {
-                    "state": {
+                    "states": {
                       "type": "string",
                       "example": "AR"
                     },
@@ -5982,11 +5707,11 @@
                 }
               },
               "latitude": {
-                "type": "string",
+                "type": "number",
                 "description": "The latitude of the parkinglot location"
               },
               "longitude": {
-                "type": "string",
+                "type": "number",
                 "description": "The longitude of the parkinglot location"
               },
               "geometryPoiId": {
@@ -6095,6 +5820,32 @@
                           },
                           "endDate": {
                             "type": "string"
+                          },
+                          "exceptionHours": {
+                            "type": "object",
+                            "properties": {
+                              "sunday": {
+                                "type": "string"
+                              },
+                              "monday": {
+                                "type": "string"
+                              },
+                              "tuesday": {
+                                "type": "string"
+                              },
+                              "wednesday": {
+                                "type": "string"
+                              },
+                              "thursday": {
+                                "type": "string"
+                              },
+                              "friday": {
+                                "type": "string"
+                              },
+                              "saturday": {
+                                "type": "string"
+                              }
+                            }
                           }
                         }
                       }
@@ -6142,7 +5893,24 @@
               "images": {
                 "type": "array",
                 "items": {
-                  "type": "object"
+                  "type": "object",
+                  "properties": {
+                    "altText": {
+                      "type": "string"
+                    },
+                    "caption": {
+                      "type": "string"
+                    },
+                    "credit": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    }
+                  }
                 }
               },
               "accessibility": {
@@ -6186,7 +5954,8 @@
                   },
                   "estimatedWaitTimeInMinutes": {
                     "type": "integer",
-                    "example": 0
+                    "example": 0,
+                    "x-nullable": true
                   },
                   "expirationDate": {
                     "type": "string"
@@ -6943,6 +6712,24 @@
                   }
                 }
               },
+              "fees": {
+                "type": "array",
+                "description": "Additional fees associated with the park",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "cost": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
               "fullName": {
                 "type": "string",
                 "description": "Full park name (with designation)"
@@ -7465,7 +7252,15 @@
                     "crops": {
                       "type": "array",
                       "items": {
-                        "type": "string"
+                        "type": "object",
+                        "properties": {
+                          "aspectRatio": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "type": "string"
+                          }
+                        }
                       },
                       "example": ""
                     },
@@ -7480,6 +7275,9 @@
                     "caption": {
                       "type": "string",
                       "example": ""
+                    },
+                    "description": {
+                      "type": "string"
                     },
                     "url": {
                       "type": "string",
@@ -7537,11 +7335,8 @@
                   "type": "object",
                   "properties": {
                     "states": {
-                      "type": "array",
-                      "items": {
-                        "type": "string",
-                        "example": "CA"
-                      }
+                      "type": "string",
+                      "example": "CA"
                     },
                     "fullName": {
                       "type": "string",
@@ -7575,6 +7370,15 @@
               "url": {
                 "type": "string",
                 "description": "Link to more information about the asset, if available"
+              },
+              "credit": {
+                "type": "string"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               }
             }
           }
@@ -7677,7 +7481,41 @@
               "images": {
                 "type": "array",
                 "items": {
-                  "type": "string"
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    },
+                    "credit": {
+                      "type": "string"
+                    },
+                    "altText": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "caption": {
+                      "type": "string"
+                    },
+                    "crops": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "aspectRatio": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               },
               "amenities": {
@@ -7688,8 +7526,21 @@
                 }
               },
               "quickFacts": {
-                "type": "string",
-                "example": ""
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  }
+                }
               },
               "npmapId": {
                 "type": "string"
@@ -7708,6 +7559,36 @@
               },
               "audioDescription": {
                 "type": "string"
+              },
+              "associatedIcon": {
+                "type": "string"
+              },
+              "credit": {
+                "type": "string"
+              },
+              "isMapPinHidden": {
+                "type": "string"
+              },
+              "isPassportStampLocation": {
+                "type": "string"
+              },
+              "location": {
+                "type": "string"
+              },
+              "locationDescription": {
+                "type": "string"
+              },
+              "passportStampImages": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "passportStampLocationDescription": {
+                "type": "string"
+              },
+              "relevanceScore": {
+                "type": "number"
               },
               "managedByUrl": {
                 "type": "string",
@@ -7968,6 +7849,15 @@
                         "type_name": {
                           "type": "string",
                           "example": "painting"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "incident_category": {
+                          "type": "string"
+                        },
+                        "incident_type": {
+                          "type": "string"
                         }
                       }
                     }
@@ -7975,6 +7865,41 @@
                   "vehicle_impact": {
                     "type": "string",
                     "example": "all-lanes-closed"
+                  },
+                  "Id": {
+                    "type": "string"
+                  },
+                  "_id": {
+                    "type": "integer"
+                  },
+                  "beginning_accuracy": {
+                    "type": "string"
+                  },
+                  "end_date_accuracy": {
+                    "type": "string"
+                  },
+                  "ending_accuracy": {
+                    "type": "string"
+                  },
+                  "start_date_accuracy": {
+                    "type": "string"
+                  },
+                  "types_of_incident": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "incident_category": {
+                          "type": "string"
+                        },
+                        "incident_type": {
+                          "type": "string"
+                        }
+                      }
+                    }
                   }
                 }
               },
@@ -8021,6 +7946,10 @@
                   "update_date": {
                     "type": "string",
                     "example": "2023-07-09T11:07:22.389219Z"
+                  },
+                  "update_frequency": {
+                    "type": "number",
+                    "example": 150
                   }
                 }
               }
@@ -8165,8 +8094,8 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "aspectratio": {
-                            "type": "integer",
+                          "aspectRatio": {
+                            "type": "string",
                             "description": "the image ratio for this cropped image",
                             "example": 3
                           },
@@ -8190,6 +8119,10 @@
                     "caption": {
                       "type": "string",
                       "description": "caption for this image"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "description for this image"
                     },
                     "url": {
                       "type": "string",
@@ -8219,10 +8152,19 @@
                 },
                 "description": ""
               },
-              "arePetsPermittedwithRestrictions": {
+              "arePetsPermittedWithRestrictions": {
                 "type": "string",
                 "description": "true or false",
                 "example": "false"
+              },
+              "amenities": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "credit": {
+                "type": "string"
               },
               "activities": {
                 "type": "array",
@@ -8617,10 +8559,10 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "aspectratio": {
-                            "type": "string",
+                          "aspectRatio": {
+                            "type": "number",
                             "description": "",
-                            "example": "1.00"
+                            "example": 1
                           },
                           "url": {
                             "type": "string",
@@ -8694,6 +8636,12 @@
                     "directionsToNextStop": {
                       "type": "string",
                       "description": ""
+                    },
+                    "audioFileUrl": {
+                      "type": "string"
+                    },
+                    "audioTranscript": {
+                      "type": "string"
                     }
                   }
                 }
@@ -8742,7 +8690,7 @@
               "tags": {
                 "type": "array",
                 "items": {
-                  "type": "object"
+                  "type": "string"
                 }
               },
               "type": {
@@ -8857,10 +8805,7 @@
                 "description": "audio description of the facility"
               },
               "contacts": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
+                "type": "object",
                 "description": "Information about contacting staff at the facility",
                 "properties": {
                   "phoneNumbers": {
@@ -8956,7 +8901,7 @@
                 }
               },
               "isPassportStampLocation": {
-                "type": "boolean",
+                "type": "string",
                 "description": "0 or 1"
               },
               "lastIndexedDate": {
@@ -9431,11 +9376,16 @@
               },
               "latitude": {
                 "type": "number",
-                "example": 61.4871482849121
+                "example": 61.4871482849121,
+                "x-nullable": true
               },
               "longitude": {
                 "type": "number",
-                "example": -142.87907409668
+                "example": -142.87907409668,
+                "x-nullable": true
+              },
+              "credit": {
+                "type": "string"
               }
             }
           }
