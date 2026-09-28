@@ -134,7 +134,7 @@
         "tags": [
           "activities"
         ],
-        "description": "",
+        "description": "Returns activities available at National Park Service sites, with optional filters for activity IDs or a search term.",
         "operationId": "getActivities",
         "produces": [
           "application/json"
@@ -159,7 +159,7 @@
             "in": "query",
             "description": "Number of results to return per request. Default is 50.",
             "required": false,
-            "type": "string"
+            "type": "integer"
           },
           {
             "name": "start",
@@ -175,9 +175,12 @@
             "type": "string"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -212,7 +215,8 @@
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "collectionFormat": "csv"
           },
           {
             "name": "q",
@@ -247,9 +251,12 @@
             "collectionFormat": "multi"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -270,7 +277,7 @@
         "tags": [
           "alerts"
         ],
-        "description": "",
+        "description": "Returns park alerts, with optional filters for park codes, state codes, or a search term.",
         "operationId": "getAlerts",
         "produces": [
           "application/json"
@@ -320,9 +327,12 @@
             "type": "string"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -343,7 +353,7 @@
         "tags": [
           "amenities"
         ],
-        "description": "",
+        "description": "Returns National Park Service amenities, with optional filters for amenity IDs or a search term.",
         "operationId": "getAmenities",
         "produces": [
           "application/json"
@@ -352,12 +362,13 @@
           {
             "name": "id",
             "in": "query",
-            "description": "One or more topic unique IDs.",
+            "description": "One or more amenity unique IDs.",
             "required": false,
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "collectionFormat": "csv"
           },
           {
             "name": "q",
@@ -381,9 +392,12 @@
             "type": "integer"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -404,7 +418,7 @@
         "tags": [
           "amenities/parksplaces"
         ],
-        "description": "",
+        "description": "Returns amenity records associated with park places, with optional filters for park codes, amenity IDs, or a search term.",
         "operationId": "getAmenitiesParksplaces",
         "produces": [
           "application/json"
@@ -461,9 +475,12 @@
             "type": "string"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -484,7 +501,7 @@
         "tags": [
           "amenities/parksvisitorcenters"
         ],
-        "description": "",
+        "description": "Returns amenity records associated with park visitor centers, with optional filters for park codes, amenity IDs, or a search term.",
         "operationId": "getAmenitiesParksvisitorcenters",
         "produces": [
           "application/json"
@@ -537,9 +554,12 @@
             "collectionFormat": "multi"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -560,7 +580,7 @@
         "tags": [
           "articles"
         ],
-        "description": "",
+        "description": "Returns National Park Service articles, with optional filters for park codes, state codes, or a search term.",
         "operationId": "getArticles",
         "produces": [
           "application/json"
@@ -610,9 +630,12 @@
             "type": "string"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -633,7 +656,7 @@
         "tags": [
           "campgrounds"
         ],
-        "description": "",
+        "description": "Returns campground information, with optional filters for park codes, state codes, or a search term.",
         "operationId": "getCampgrounds",
         "produces": [
           "application/json"
@@ -694,9 +717,12 @@
             "collectionFormat": "multi"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -717,7 +743,7 @@
         "tags": [
           "events"
         ],
-        "description": "",
+        "description": "Returns events associated with National Park Service sites, with optional filters for location, date, event type, tags, or search term.",
         "operationId": "getEvents",
         "produces": [
           "application/json"
@@ -872,9 +898,12 @@
             "type": "boolean"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -895,7 +924,7 @@
         "tags": [
           "feespasses"
         ],
-        "description": "",
+        "description": "Returns information about fees and passes, with optional filters for park codes, state codes, or a search term.",
         "operationId": "getFeesPasses",
         "produces": [
           "application/json"
@@ -956,9 +985,12 @@
             "collectionFormat": "multi"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -979,7 +1011,7 @@
         "tags": [
           "lessonplans"
         ],
-        "description": "",
+        "description": "Returns educational lesson plans, with optional filters for park codes, state codes, or a search term.",
         "operationId": "getLessonPlans",
         "produces": [
           "application/json"
@@ -1040,9 +1072,12 @@
             "collectionFormat": "multi"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -1063,7 +1098,7 @@
         "tags": [
           "mapdata/parkboundaries"
         ],
-        "description": "",
+        "description": "Returns park boundary data for the National Park Service site identified by the site code.",
         "operationId": "getMapdataParkboundaries",
         "produces": [
           "application/json"
@@ -1077,9 +1112,12 @@
             "type": "string"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -1100,7 +1138,7 @@
         "tags": [
           "multimedia/audio"
         ],
-        "description": "",
+        "description": "Returns audio resources from National Park Service sites, with optional filters for park codes, state codes, or a search term.",
         "operationId": "getMultimediaAudio",
         "produces": [
           "application/json"
@@ -1150,9 +1188,12 @@
             "type": "string"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -1173,7 +1214,7 @@
         "tags": [
           "multimedia/galleries"
         ],
-        "description": "",
+        "description": "Returns multimedia galleries from National Park Service sites, with optional filters for park codes, state codes, or a search term.",
         "operationId": "getMultimediaGalleries",
         "produces": [
           "application/json"
@@ -1223,9 +1264,12 @@
             "type": "string"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -1246,7 +1290,7 @@
         "tags": [
           "multimedia/galleries/assets"
         ],
-        "description": "",
+        "description": "Returns assets in National Park Service multimedia galleries, with optional filters for asset ID, gallery ID, park code, state code, or a search term.",
         "operationId": "getMultimediaGalleriesAssets",
         "produces": [
           "application/json"
@@ -1310,9 +1354,12 @@
             "type": "string"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -1333,7 +1380,7 @@
         "tags": [
           "multimedia/videos"
         ],
-        "description": "",
+        "description": "Returns video resources from National Park Service sites, with optional filters for park codes, state codes, or a search term.",
         "operationId": "getMultimediaVideo",
         "produces": [
           "application/json"
@@ -1383,9 +1430,12 @@
             "type": "string"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -1406,7 +1456,7 @@
         "tags": [
           "newsreleases"
         ],
-        "description": "",
+        "description": "Returns National Park Service news releases, with optional filters for park codes, state codes, or a search term.",
         "operationId": "getNewsReleases",
         "produces": [
           "application/json"
@@ -1467,9 +1517,12 @@
             "collectionFormat": "multi"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -1490,7 +1543,7 @@
         "tags": [
           "parkinglots"
         ],
-        "description": "",
+        "description": "Returns parking lot information for National Park Service sites, with optional filters for park codes, state codes, or a search term.",
         "operationId": "getParkinglots",
         "produces": [
           "application/json"
@@ -1540,9 +1593,12 @@
             "type": "string"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -1563,7 +1619,7 @@
         "tags": [
           "parks"
         ],
-        "description": "",
+        "description": "Returns information about National Park Service parks and sites, with optional filters for park codes, state codes, or a search term.",
         "operationId": "getPark",
         "produces": [
           "application/json"
@@ -1624,9 +1680,12 @@
             "collectionFormat": "multi"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -1647,7 +1706,7 @@
         "tags": [
           "passportstamplocations"
         ],
-        "description": "",
+        "description": "Returns locations where visitors can obtain National Park Passport stamps, with optional filters for park codes, state codes, or a search term.",
         "operationId": "getPassportstamplocations",
         "produces": [
           "application/json"
@@ -1697,9 +1756,12 @@
             "type": "integer"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -1720,7 +1782,7 @@
         "tags": [
           "people"
         ],
-        "description": "",
+        "description": "Returns people associated with National Park Service sites, with optional filters for park codes, state codes, or a search term.",
         "operationId": "getPeople",
         "produces": [
           "application/json"
@@ -1770,9 +1832,12 @@
             "type": "string"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -1793,7 +1858,7 @@
         "tags": [
           "places"
         ],
-        "description": "",
+        "description": "Returns places within National Park Service sites, with optional filters for park codes, state codes, or a search term.",
         "operationId": "getPlaces",
         "produces": [
           "application/json"
@@ -1843,9 +1908,12 @@
             "type": "string"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -1866,7 +1934,7 @@
         "tags": [
           "roadevents"
         ],
-        "description": "",
+        "description": "Returns road events, optionally filtered by park code and event type.",
         "operationId": "getRoadevents",
         "produces": [
           "application/json"
@@ -1887,9 +1955,12 @@
             "type": "string"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -1910,7 +1981,7 @@
         "tags": [
           "thingstodo"
         ],
-        "description": "",
+        "description": "Returns activities and experiences visitors can do at National Park Service sites, with optional filters for IDs, park codes, state codes, or a search term.",
         "operationId": "getThingstodo",
         "produces": [
           "application/json"
@@ -1956,7 +2027,7 @@
             "in": "query",
             "description": "Get the next [limit] results starting with this number. Default is 0.",
             "required": false,
-            "type": "string"
+            "type": "integer"
           },
           {
             "name": "sort",
@@ -1970,9 +2041,12 @@
             "collectionFormat": "multi"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -1993,7 +2067,7 @@
         "tags": [
           "topics"
         ],
-        "description": "",
+        "description": "Returns National Park Service topics, with optional filters for topic IDs or a search term.",
         "operationId": "getTopics",
         "produces": [
           "application/json"
@@ -2035,9 +2109,12 @@
             "type": "string"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -2058,7 +2135,7 @@
         "tags": [
           "topics/parks"
         ],
-        "description": "",
+        "description": "Returns parks associated with National Park Service topics, with optional filters for topic IDs or a search term.",
         "operationId": "getTopicsParks",
         "produces": [
           "application/json"
@@ -2103,9 +2180,12 @@
             "type": "string"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -2126,7 +2206,7 @@
         "tags": [
           "tours"
         ],
-        "description": "",
+        "description": "Returns tours at National Park Service sites, with optional filters for tour IDs, park codes, state codes, or a search term.",
         "operationId": "getTours",
         "produces": [
           "application/json"
@@ -2198,9 +2278,12 @@
             "collectionFormat": "multi"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -2221,7 +2304,7 @@
         "tags": [
           "visitorcenters"
         ],
-        "description": "",
+        "description": "Returns information about National Park Service visitor centers, with optional filters for park codes, state codes, or a search term.",
         "operationId": "getVisitorCenters",
         "produces": [
           "application/json"
@@ -2282,9 +2365,12 @@
             "collectionFormat": "multi"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -2305,7 +2391,7 @@
         "tags": [
           "webcams"
         ],
-        "description": "",
+        "description": "Returns metadata for National Park Service webcams, with optional filters for park codes, state codes, webcam IDs, or a search term.",
         "operationId": "getWebcams",
         "produces": [
           "application/json"
@@ -2362,9 +2448,12 @@
             "type": "string"
           }
         ],
-        "security": [
+"security": [
           {
             "api_key": []
+          },
+          {
+            "api_key_header": []
           }
         ],
         "responses": {
@@ -2386,6 +2475,11 @@
       "type": "apiKey",
       "name": "api_key",
       "in": "query"
+    },
+    "api_key_header": {
+      "type": "apiKey",
+      "name": "X-Api-Key",
+      "in": "header"
     }
   },
   "definitions": {
@@ -2411,18 +2505,18 @@
                 "description": "Name of the activity",
                 "example": "Arts and Culture"
               }
+            }
+          },
+          "example": [
+            {
+              "id": "FEDA3DF8-B871-4C1A-BB96-32823860B174",
+              "name": "Arts and Culture"
             },
-            "example": [
-              {
-                "id": "FEDA3DF8-B871-4C1A-BB96-32823860B174",
-                "name": "Arts and Culture"
-              },
-              {
-                "id": "F07B0BA0-A3E9-4C82-9746-57DA4953C2E6",
-                "name": "Astronomy"
-              }
-            ]
-          }
+            {
+              "id": "F07B0BA0-A3E9-4C82-9746-57DA4953C2E6",
+              "name": "Astronomy"
+            }
+          ]
         },
         "limit": {
           "type": "string",
@@ -2576,37 +2670,37 @@
                   }
                 }
               }
+            }
+          },
+          "example": [
+            {
+              "category": "Information",
+              "description": "Some destinations are unavailable because of construction related to the Canyon Overlooks and Trails Restoration Project.",
+              "id": "4C3095E2-1DD8-B71B-0BAC8E16AABF3113",
+              "parkCode": "yell",
+              "title": "Area Closures in Canyon",
+              "url": "https://www.nps.gov/yell/planyourvisit/canyonprojects.htm",
+              "lastIndexedDate": "2023-06-27 14:10:21.0",
+              "relatedRoadEvents": []
             },
-            "example": [
-              {
-                "category": "Information",
-                "description": "Some destinations are unavailable because of construction related to the Canyon Overlooks and Trails Restoration Project.",
-                "id": "4C3095E2-1DD8-B71B-0BAC8E16AABF3113",
-                "parkCode": "yell",
-                "title": "Area Closures in Canyon",
-                "url": "https://www.nps.gov/yell/planyourvisit/canyonprojects.htm",
-                "lastIndexedDate": "2023-06-27 14:10:21.0",
-                "relatedRoadEvents": []
-              },
-              {
-                "category": "Caution",
-                "description": "The road between Roaring Mountain and Willow Park is under construction. Expect delays up to 30 minutes and night closures June 11–September 10 from 10pm–7am (excluding Saturday nights).",
-                "id": "696FC8C9-1DD8-B71B-0BF3D47A2BF92890",
-                "parkCode": "yell",
-                "title": "Construction & Nightly Closures between Norris & Mammoth Hot Springs",
-                "url": "https://www.nps.gov/yell/planyourvisit/parkroads.htm",
-                "lastIndexedDate": "2023-06-27 14:10:21.0",
-                "relatedRoadEvents": [
-                  {
-                    "title": "Crazy Squirrels",
-                    "id": "68BC589E-7FFC-4AFC-AD02-85E123C4C145",
-                    "type": "roadevent",
-                    "url": "https://www.nps.gov/yose/planyourvisit/conditions.htm"
-                  }
-                ]
-              }
-            ]
-          }
+            {
+              "category": "Caution",
+              "description": "The road between Roaring Mountain and Willow Park is under construction. Expect delays up to 30 minutes and night closures June 11–September 10 from 10pm–7am (excluding Saturday nights).",
+              "id": "696FC8C9-1DD8-B71B-0BF3D47A2BF92890",
+              "parkCode": "yell",
+              "title": "Construction & Nightly Closures between Norris & Mammoth Hot Springs",
+              "url": "https://www.nps.gov/yell/planyourvisit/parkroads.htm",
+              "lastIndexedDate": "2023-06-27 14:10:21.0",
+              "relatedRoadEvents": [
+                {
+                  "title": "Crazy Squirrels",
+                  "id": "68BC589E-7FFC-4AFC-AD02-85E123C4C145",
+                  "type": "roadevent",
+                  "url": "https://www.nps.gov/yose/planyourvisit/conditions.htm"
+                }
+              ]
+            }
+          ]
         },
         "limit": {
           "type": "string",
@@ -2700,7 +2794,7 @@
                       },
                       "designation": {
                         "type": "string",
-                        "description": "",
+                        "description": "Type of designation (eg, national park, national monument, national recreation area, etc)",
                         "example": "Parkway"
                       },
                       "fullName": {
@@ -2799,7 +2893,7 @@
                       },
                       "designation": {
                         "type": "string",
-                        "description": "",
+                        "description": "Type of designation (eg, national park, national monument, national recreation area, etc)",
                         "example": "National Memorial"
                       },
                       "visitorcenters": {
@@ -3695,7 +3789,8 @@
                 "type": "string"
               },
               "datetimeupdated": {
-                "type": "string"
+                "type": "string",
+                "x-nullable": true
               },
               "description": {
                 "type": "string",
@@ -3703,7 +3798,7 @@
               },
               "eventid": {
                 "type": "string",
-                "example": 0
+                "example": "0"
               },
               "feeinfo": {
                 "type": "string",
@@ -3768,23 +3863,23 @@
                 "description": "URL for more information about the event"
               },
               "isallday": {
-                "type": "boolean",
+                "type": "string",
                 "description": "The event takes place all day"
               },
               "isfree": {
-                "type": "boolean",
+                "type": "string",
                 "description": "The event is free"
               },
               "isrecurring": {
-                "type": "boolean",
+                "type": "string",
                 "description": "The event has recurrence"
               },
               "isregresrequired": {
-                "type": "boolean",
+                "type": "string",
                 "description": "The event requires registration or reservation"
               },
               "latitude": {
-                "type": "number",
+                "type": "string",
                 "x-nullable": true,
                 "description": "The latitude of the event location"
               },
@@ -3793,7 +3888,7 @@
                 "description": "The location the event takes place"
               },
               "longitude": {
-                "type": "number",
+                "type": "string",
                 "x-nullable": true,
                 "description": "The longitude of the event location"
               },
@@ -3861,14 +3956,14 @@
                   "type": "object",
                   "properties": {
                     "sunrisestart": {
-                      "type": "boolean",
+                      "type": "string",
                       "description": "Event begins at sunrise",
-                      "example": true
+                      "example": "true"
                     },
                     "sunsetend": {
-                      "type": "boolean",
+                      "type": "string",
                       "description": "Event ends at sunset",
-                      "example": false
+                      "example": "false"
                     },
                     "timestart": {
                       "type": "string",
@@ -3892,187 +3987,187 @@
                   "type": "string"
                 }
               }
+            }
+          },
+          "example": [
+            {
+              "category": "Regular Event",
+              "categoryid": "0",
+              "contactemailaddress": "example@nps.gov",
+              "contactname": "John Doe",
+              "contacttelephonenumber": "9999999999",
+              "createuser": "",
+              "date": "2019-09-14",
+              "dateend": "2017-09-16",
+              "dates": [
+                "2017-09-16",
+                "2018-09-15",
+                "2019-09-14"
+              ],
+              "datestart": "2017-09-16",
+              "datetimecreated": "",
+              "datetimeupdated": "",
+              "description": "<p>Join a National Park service Ranger for a paid guided tour.</p>",
+              "eventid": "0",
+              "feeinfo": "The event is not free; you should call the park.",
+              "geometryPoiId": "8793be28-0d54-493f-8556-877e7ecbe937",
+              "id": "FE39616A-1DD8-B71B-0BA9DCB9BDF76670",
+              "imageidlist": "",
+              "images": [
+                {
+                  "altText": "Picture of the South-West Battery with a skyscraper in the background.",
+                  "caption": "The South-West Battery",
+                  "credit": "NPS Photo",
+                  "imageId": "21803",
+                  "ordinal": "0",
+                  "path": "/common/uploads/event_calendar/1B853925-E059-D529-0C87BCF597BE816B.jpg",
+                  "title": "The South-West Battery",
+                  "url": "/common/uploads/event_calendar/1B853925-E059-D529-0C87BCF597BE816B.jpg"
+                }
+              ],
+              "infourl": "",
+              "isallday": "false",
+              "isfree": "false",
+              "isrecurring": "true",
+              "isregresrequired": "true",
+              "latitude": "40.7034",
+              "location": "Castle Clinton National Monument",
+              "longitude": "-74.0168",
+              "organizationname": "",
+              "parkfullname": "Castle Clinton National Monument",
+              "portalname": "",
+              "recurrencedateend": "2023-11-20",
+              "recurrencedatestart": "2017-09-16",
+              "recurrencerule": "DTSTART=20171120T040000Z;UNTIL=20231120T040000Z;FREQ=DAILY;WKST=SU;COUNT=0;INTERVAL=1",
+              "regresinfo": "Please call the park to register for this event.",
+              "regresurl": "https://www.nps.gov/planyourvisit/event-details.htm?id=0D25A738-155D-451F-67D31ADD6827D16D",
+              "sitecode": "cacl",
+              "sitetype": "park",
+              "subjectname": "",
+              "tags": [
+                "NPS Centennial"
+              ],
+              "timeinfo": "",
+              "times": [
+                {
+                  "timestart": "10:00 AM",
+                  "timeend": "10:30 AM",
+                  "sunsetend": "false",
+                  "sunrisestart": "false"
+                },
+                {
+                  "timestart": "12:00 PM",
+                  "timeend": "12:30 PM",
+                  "sunsetend": "false",
+                  "sunrisestart": "false"
+                },
+                {
+                  "timestart": "02:00 PM",
+                  "timeend": "02:30 PM",
+                  "sunsetend": "false",
+                  "sunrisestart": "false"
+                },
+                {
+                  "timestart": "03:00 PM",
+                  "timeend": "03:30 PM",
+                  "sunsetend": "false",
+                  "sunrisestart": "false"
+                }
+              ],
+              "title": "Military Appreciation Day",
+              "types": [
+                "Other"
+              ]
             },
-            "example": [
-              {
-                "category": "Regular Event",
-                "categoryid": "0",
-                "contactemailaddress": "example@nps.gov",
-                "contactname": "John Doe",
-                "contacttelephonenumber": "9999999999",
-                "createuser": "",
-                "date": "2019-09-14",
-                "dateend": "2017-09-16",
-                "dates": [
-                  "2017-09-16",
-                  "2018-09-15",
-                  "2019-09-14"
-                ],
-                "datestart": "2017-09-16",
-                "datetimecreated": "",
-                "datetimeupdated": "",
-                "description": "<p>Join a National Park service Ranger for a paid guided tour.</p>",
-                "eventid": "0",
-                "feeinfo": "The event is not free; you should call the park.",
-                "geometryPoiId": "8793be28-0d54-493f-8556-877e7ecbe937",
-                "id": "FE39616A-1DD8-B71B-0BA9DCB9BDF76670",
-                "imageidlist": "",
-                "images": [
-                  {
-                    "altText": "Picture of the South-West Battery with a skyscraper in the background.",
-                    "caption": "The South-West Battery",
-                    "credit": "NPS Photo",
-                    "imageId": "21803",
-                    "ordinal": "0",
-                    "path": "/common/uploads/event_calendar/1B853925-E059-D529-0C87BCF597BE816B.jpg",
-                    "title": "The South-West Battery",
-                    "url": "/common/uploads/event_calendar/1B853925-E059-D529-0C87BCF597BE816B.jpg"
-                  }
-                ],
-                "infourl": "",
-                "isallday": false,
-                "isfree": false,
-                "isrecurring": true,
-                "isregresrequired": true,
-                "latitude": 40.7034,
-                "location": "Castle Clinton National Monument",
-                "longitude": -74.0168,
-                "organizationname": "",
-                "parkfullname": "Castle Clinton National Monument",
-                "portalname": "",
-                "recurrencedateend": "2023-11-20",
-                "recurrencedatestart": "2017-09-16",
-                "recurrencerule": "DTSTART=20171120T040000Z;UNTIL=20231120T040000Z;FREQ=DAILY;WKST=SU;COUNT=0;INTERVAL=1",
-                "regresinfo": "Please call the park to register for this event.",
-                "regresurl": "https://www.nps.gov/planyourvisit/event-details.htm?id=0D25A738-155D-451F-67D31ADD6827D16D",
-                "sitecode": "cacl",
-                "sitetype": "park",
-                "subjectname": "",
-                "tags": [
-                  "NPS Centennial"
-                ],
-                "timeinfo": "",
-                "times": [
-                  {
-                    "timestart": "10:00 AM",
-                    "timeend": "10:30 AM",
-                    "sunsetend": false,
-                    "sunrisestart": false
-                  },
-                  {
-                    "timestart": "12:00 PM",
-                    "timeend": "12:30 PM",
-                    "sunsetend": false,
-                    "sunrisestart": false
-                  },
-                  {
-                    "timestart": "02:00 PM",
-                    "timeend": "02:30 PM",
-                    "sunsetend": false,
-                    "sunrisestart": false
-                  },
-                  {
-                    "timestart": "03:00 PM",
-                    "timeend": "03:30 PM",
-                    "sunsetend": false,
-                    "sunrisestart": false
-                  }
-                ],
-                "title": "Military Appreciation Day",
-                "types": [
-                  "Other"
-                ]
-              },
-              {
-                "category": "Regular Event",
-                "categoryid": "0",
-                "contactemailaddress": "",
-                "contactname": "",
-                "contacttelephonenumber": "",
-                "createuser": "",
-                "date": "2018-10-29",
-                "dateend": "2018-10-31",
-                "dates": [
-                  "2018-10-29",
-                  "2018-10-30",
-                  "2018-10-31"
-                ],
-                "datestart": "2018-10-31",
-                "datetimecreated": "",
-                "datetimeupdated": "",
-                "description": "<p>Join a National Park service Ranger for a free guided tour.</p>",
-                "eventid": "0",
-                "feeinfo": "",
-                "id": "0D25A738-155D-451F-67D31ADD6827D16D",
-                "imageidlist": "",
-                "images": [
-                  {
-                    "altText": "",
-                    "caption": "",
-                    "credit": "",
-                    "imageId": "",
-                    "ordinal": "",
-                    "path": "",
-                    "title": "",
-                    "url": ""
-                  }
-                ],
-                "infourl": "",
-                "isallday": false,
-                "isfree": true,
-                "isrecurring": true,
-                "isregresrequired": false,
-                "latitude": null,
-                "location": "Castle Clinton NM",
-                "longitude": null,
-                "organizationname": "",
-                "parkfullname": "Castle Clinton National Monument",
-                "portalname": "",
-                "recurrencedateend": "2023-11-20",
-                "recurrencedatestart": "2018-10-31",
-                "recurrencerule": "DTSTART=20171120T040000Z;UNTIL=20231120T040000Z;FREQ=DAILY;WKST=SU;COUNT=0;INTERVAL=1",
-                "regresinfo": "",
-                "regresurl": "",
-                "sitecode": "cacl",
-                "sitetype": "park",
-                "subjectname": "",
-                "tags": [
-                  "NPS Centennial"
-                ],
-                "timeinfo": "",
-                "times": [
-                  {
-                    "timestart": "10:00 AM",
-                    "timeend": "10:30 AM",
-                    "sunsetend": false,
-                    "sunrisestart": false
-                  },
-                  {
-                    "timestart": "12:00 PM",
-                    "timeend": "12:30 PM",
-                    "sunsetend": false,
-                    "sunrisestart": false
-                  },
-                  {
-                    "timestart": "02:00 PM",
-                    "timeend": "02:30 PM",
-                    "sunsetend": false,
-                    "sunrisestart": false
-                  },
-                  {
-                    "timestart": "03:00 PM",
-                    "timeend": "03:30 PM",
-                    "sunsetend": false,
-                    "sunrisestart": false
-                  }
-                ],
-                "title": "Castle Clinton Guided tour",
-                "types": [
-                  "Other"
-                ]
-              }
-            ]
-          }
+            {
+              "category": "Regular Event",
+              "categoryid": "0",
+              "contactemailaddress": "",
+              "contactname": "",
+              "contacttelephonenumber": "",
+              "createuser": "",
+              "date": "2018-10-29",
+              "dateend": "2018-10-31",
+              "dates": [
+                "2018-10-29",
+                "2018-10-30",
+                "2018-10-31"
+              ],
+              "datestart": "2018-10-31",
+              "datetimecreated": "",
+              "datetimeupdated": "",
+              "description": "<p>Join a National Park service Ranger for a free guided tour.</p>",
+              "eventid": "0",
+              "feeinfo": "",
+              "id": "0D25A738-155D-451F-67D31ADD6827D16D",
+              "imageidlist": "",
+              "images": [
+                {
+                  "altText": "",
+                  "caption": "",
+                  "credit": "",
+                  "imageId": "",
+                  "ordinal": "",
+                  "path": "",
+                  "title": "",
+                  "url": ""
+                }
+              ],
+              "infourl": "",
+              "isallday": "false",
+              "isfree": "true",
+              "isrecurring": "true",
+              "isregresrequired": "false",
+              "latitude": null,
+              "location": "Castle Clinton NM",
+              "longitude": null,
+              "organizationname": "",
+              "parkfullname": "Castle Clinton National Monument",
+              "portalname": "",
+              "recurrencedateend": "2023-11-20",
+              "recurrencedatestart": "2018-10-31",
+              "recurrencerule": "DTSTART=20171120T040000Z;UNTIL=20231120T040000Z;FREQ=DAILY;WKST=SU;COUNT=0;INTERVAL=1",
+              "regresinfo": "",
+              "regresurl": "",
+              "sitecode": "cacl",
+              "sitetype": "park",
+              "subjectname": "",
+              "tags": [
+                "NPS Centennial"
+              ],
+              "timeinfo": "",
+              "times": [
+                {
+                  "timestart": "10:00 AM",
+                  "timeend": "10:30 AM",
+                  "sunsetend": "false",
+                  "sunrisestart": "false"
+                },
+                {
+                  "timestart": "12:00 PM",
+                  "timeend": "12:30 PM",
+                  "sunsetend": "false",
+                  "sunrisestart": "false"
+                },
+                {
+                  "timestart": "02:00 PM",
+                  "timeend": "02:30 PM",
+                  "sunsetend": "false",
+                  "sunrisestart": "false"
+                },
+                {
+                  "timestart": "03:00 PM",
+                  "timeend": "03:30 PM",
+                  "sunsetend": "false",
+                  "sunrisestart": "false"
+                }
+              ],
+              "title": "Castle Clinton Guided tour",
+              "types": [
+                "Other"
+              ]
+            }
+          ]
         },
         "dates": {
           "type": "string",
@@ -4170,6 +4265,11 @@
                       "type": "string",
                       "description": "",
                       "example": "https://www.nps.gov/acad/planyourvisit/vehicle_reservations.htm"
+                    },
+                    "npsGovPurchaseUrl": {
+                      "type": "string",
+                      "description": "",
+                      "example": ""
                     },
                     "payGovPurchaseUrl": {
                       "type": "string",
@@ -4611,72 +4711,72 @@
                 "type": "string",
                 "description": "Lesson plan link"
               }
-            },
-            "example": [
-              {
-                "commonCore": {
-                    "stateStandards": "State: Nebraska\t\nSubject: History        \nGrade Level:  8th  \t\n\n State Standards:  8.1.2, 8.1.5, 8.4.2",
-                    "mathStandards": [
-                      "6-8.RH.1",
-                      "6-8.RH.2",
-                      "6-8.RH.3",
-                      "6-8.RH.4",
-                      "6-8.RH.5",
-                      "6-8.RH.6",
-                      "6-8.RH.7",
-                      "6-8.RH.8",
-                      "6-8.RH.9",
-                      "6-8.RH.10"
-                    ],
-                    "additionalStandards": "",
-                    "elaStandards": [
-                      "6-8.RH.1",
-                      "6-8.RH.2",
-                      "6-8.RH.3",
-                      "6-8.RH.4",
-                      "6-8.RH.5",
-                      "6-8.RH.6",
-                      "6-8.RH.7",
-                      "6-8.RH.8",
-                      "6-8.RH.9",
-                      "6-8.RH.10"
-                    ]
-                },
-                "duration": "60 Minutes",
-                "gradeLevel": "Middle School: Sixth Grade through Eighth Grade",
-                "id": "4837942",
-                "parks": [
-                  "home"
+            }
+          },
+          "example": [
+            {
+              "commonCore": {
+                "stateStandards": "State: Nebraska\t\nSubject: History        \nGrade Level:  8th  \t\n\n State Standards:  8.1.2, 8.1.5, 8.4.2",
+                "mathStandards": [
+                  "6-8.RH.1",
+                  "6-8.RH.2",
+                  "6-8.RH.3",
+                  "6-8.RH.4",
+                  "6-8.RH.5",
+                  "6-8.RH.6",
+                  "6-8.RH.7",
+                  "6-8.RH.8",
+                  "6-8.RH.9",
+                  "6-8.RH.10"
                 ],
-                "questionObjective": "In \"Dawes Act,\" students will look at the similarities and differences between the Homestead Act and the Dawes Act by analyzing primary sources. \nIn this lesson, students will answer the following essential question: What are the cause and effects of the Dawes Act?",
-                "subject": [
-                  "Social Studies"
-                ],
-                "title": "Dawes Act",
-                "url": "https://www.nps.gov/teachers/classrooms/dawact.htm"
+                "additionalStandards": "",
+                "elaStandards": [
+                  "6-8.RH.1",
+                  "6-8.RH.2",
+                  "6-8.RH.3",
+                  "6-8.RH.4",
+                  "6-8.RH.5",
+                  "6-8.RH.6",
+                  "6-8.RH.7",
+                  "6-8.RH.8",
+                  "6-8.RH.9",
+                  "6-8.RH.10"
+                ]
               },
-              {
-                "commoncore": [
-                  {
-                    "statestandards": "",
-                    "mathstandards": null,
-                    "additionalstandards": "",
-                    "elastandards": null
-                  }
-                ],
-                "duration": "90 Minutes",
-                "gradelevel": "Upper Elementary: Third Grade through Fifth Grade",
-                "id": 3922862,
-                "parks": [
-                  "flni"
-                ],
-                "questionobjective": "This program utilizes multimedia, exhibits, oral presentations and the memorial landscape to deliver a unique learning opportunity.  The overall objective of this program is to expose students to the various passengers and crew members of Flight 93: Who they were, their names, what made them unique, and how do we remember them today at the memorial. There will also be a special emphasis on the story of Flight 93 and the actions of the passengers and crew members.",
-                "subject": "Social Studies",
-                "title": "A Walk to Remember",
-                "url": "https://www.nps.gov/flni/learn/education/classrooms/index.htm"
-              }
-            ]
-          }
+              "duration": "60 Minutes",
+              "gradeLevel": "Middle School: Sixth Grade through Eighth Grade",
+              "id": "4837942",
+              "parks": [
+                "home"
+              ],
+              "questionObjective": "In \"Dawes Act,\" students will look at the similarities and differences between the Homestead Act and the Dawes Act by analyzing primary sources. \nIn this lesson, students will answer the following essential question: What are the cause and effects of the Dawes Act?",
+              "subject": [
+                "Social Studies"
+              ],
+              "title": "Dawes Act",
+              "url": "https://www.nps.gov/teachers/classrooms/dawact.htm"
+            },
+            {
+              "commonCore": {
+                "stateStandards": "",
+                "mathStandards": [],
+                "additionalStandards": "",
+                "elaStandards": []
+              },
+              "duration": "90 Minutes",
+              "gradeLevel": "Upper Elementary: Third Grade through Fifth Grade",
+              "id": "3922862",
+              "parks": [
+                "flni"
+              ],
+              "questionObjective": "This program utilizes multimedia, exhibits, oral presentations and the memorial landscape to deliver a unique learning opportunity.  The overall objective of this program is to expose students to the various passengers and crew members of Flight 93: Who they were, their names, what made them unique, and how do we remember them today at the memorial. There will also be a special emphasis on the story of Flight 93 and the actions of the passengers and crew members.",
+              "subject": [
+                "Social Studies"
+              ],
+              "title": "A Walk to Remember",
+              "url": "https://www.nps.gov/flni/learn/education/classrooms/index.htm"
+            }
+          ]
         },
         "limit": {
           "type": "string",
@@ -4882,18 +4982,19 @@
                 "type": "array",
                 "items": {
                   "type": "string",
-                  "example": [
-                    "Theodore Roosevelt",
-                    "Grand Canyon",
-                    "Presidency",
-                    "CONSERVATION LEGACY",
-                    "NATIVE AMERICAN CULTURE",
-                    "legacy and national park service",
-                    "diversity",
-                    "Native American",
-                    "American Indian"
-                  ]
-                }
+                  "example": "Theodore Roosevelt"
+                },
+                "example": [
+                  "Theodore Roosevelt",
+                  "Grand Canyon",
+                  "Presidency",
+                  "CONSERVATION LEGACY",
+                  "NATIVE AMERICAN CULTURE",
+                  "legacy and national park service",
+                  "diversity",
+                  "Native American",
+                  "American Indian"
+                ]
               },
               "latitude": {
                 "type": "number",
@@ -5575,65 +5676,61 @@
                 "type": "string",
                 "description": "Link to full news release"
               }
-            },
-            "example": [
-              {
-                "abstract": "Chesapeake and Ohio (C&O) Canal National Historical Park will be conducting hazardous tree pruning and removal at five locations in Montgomery County; these locations are Riley’s Lock, Marsden Tract, Violettes Lock, Great Falls, and Anglers.",
-                "id": 5604563,
-                "image": [
-                  {
-                    "credit": "",
-                    "altText": "",
-                    "title": "",
-                    "description": "",
-                    "caption": "",
-                    "url": ""
-                  }
-                ],
-                "latitude": 40.7034,
-                "longitude": -74.0168,
-                "parkCode": "choh",
-                "relatedOrganizations": [
-                  {
-                    "id": "1ED09DFF-E65B-425F-8596-7087FAC00343",
-                    "url": "http://www.nps.gov/orgs/1563/",
-                    "name": "Investigative Services"
-                  }
-                ],
-                "relatedParks": [
-                  {
-                    "states": "AR",
-                    "parkCode": "buff",
-                    "designation": "National River",
-                    "fullName": "Buffalo National River",
-                    "url": "https://www.nps.gov/buff/index.htm",
-                    "name": "Buffalo"
-                  }
-                ],
-                "releasedate": "2017-07-31 06:45:00.0",
-                "title": "C&O Canal NHP begins hazardous tree maintenance in Montgomery County",
-                "url": "https://www.nps.gov/choh/learn/news/hazardous-tree-maintenance.htm"
+            }
+          },
+          "example": [
+            {
+              "abstract": "Chesapeake and Ohio (C&O) Canal National Historical Park will be conducting hazardous tree pruning and removal at five locations in Montgomery County; these locations are Riley’s Lock, Marsden Tract, Violettes Lock, Great Falls, and Anglers.",
+              "id": "5604563",
+              "image": {
+                "credit": "",
+                "altText": "",
+                "title": "",
+                "description": "",
+                "caption": "",
+                "url": ""
               },
-              {
-                "abstract": "This week, Branching Out field teams from Boston and New York City met at Sagamore Hill National Historic Site for a four-day long gathering to learn about landscape management and work on various projects with park staff.",
-                "id": 5604164,
-                "image": [
-                  {
-                    "credit": "NPS/Paul Cecere",
-                    "altText": "Working on the nature trial",
-                    "title": "Branching Out students ready for work on the nature trail",
-                    "description": "Branching Out students ready for work on the nature trail.",
-                    "caption": "Branching Out students ready for work on the nature trail.",
-                    "url": "https://www.nps.gov/sahi/learn/news/images/IMG_5819_1.JPG"
-                  }
-                ],
-                "parkCode": "sahi",
-                "releasedate": "2017-07-30 12:30:00.0",
-                "title": "Branching Out Field Teams Converge on Sagamore Hill",
-                "url": "https://www.nps.gov/sahi/learn/news/branching-out-field-teams-converge-on-sagamore-hill.htm"
-              }
-            ]
-          }
+              "latitude": "40.7034",
+              "longitude": "-74.0168",
+              "parkCode": "choh",
+              "relatedOrganizations": [
+                {
+                  "id": "1ED09DFF-E65B-425F-8596-7087FAC00343",
+                  "url": "http://www.nps.gov/orgs/1563/",
+                  "name": "Investigative Services"
+                }
+              ],
+              "relatedParks": [
+                {
+                  "states": "AR",
+                  "parkCode": "buff",
+                  "designation": "National River",
+                  "fullName": "Buffalo National River",
+                  "url": "https://www.nps.gov/buff/index.htm",
+                  "name": "Buffalo"
+                }
+              ],
+              "releaseDate": "2017-07-31 06:45:00.0",
+              "title": "C&O Canal NHP begins hazardous tree maintenance in Montgomery County",
+              "url": "https://www.nps.gov/choh/learn/news/hazardous-tree-maintenance.htm"
+            },
+            {
+              "abstract": "This week, Branching Out field teams from Boston and New York City met at Sagamore Hill National Historic Site for a four-day long gathering to learn about landscape management and work on various projects with park staff.",
+              "id": "5604164",
+              "image": {
+                "credit": "NPS/Paul Cecere",
+                "altText": "Working on the nature trial",
+                "title": "Branching Out students ready for work on the nature trail",
+                "description": "Branching Out students ready for work on the nature trail.",
+                "caption": "Branching Out students ready for work on the nature trail.",
+                "url": "https://www.nps.gov/sahi/learn/news/images/IMG_5819_1.JPG"
+              },
+              "parkCode": "sahi",
+              "releaseDate": "2017-07-30 12:30:00.0",
+              "title": "Branching Out Field Teams Converge on Sagamore Hill",
+              "url": "https://www.nps.gov/sahi/learn/news/branching-out-field-teams-converge-on-sagamore-hill.htm"
+            }
+          ]
         },
         "limit": {
           "type": "string",
@@ -5785,7 +5882,7 @@
                   "properties": {
                     "cost": {
                       "type": "string",
-                      "example": 30
+                      "example": "30"
                     },
                     "description": {
                       "type": "string",
@@ -5970,572 +6067,572 @@
                   }
                 }
               }
-            },
-            "example": [
-              {
-                "id": "7DE234F8-0156-4ADE-BB94-CA01B72DA7C2",
-                "name": "Cadillac Mountain",
-                "altName": "",
-                "description": "Cadillac Mountain summit and Blue Hill Overlook",
-                "relatedParks": [
-                  {
-                    "states": "ME",
-                    "parkCode": "acad",
-                    "designation": "National Park",
-                    "fullName": "Acadia National Park",
-                    "url": "https://www.nps.gov/acad/index.htm",
-                    "name": "Acadia"
-                  }
-                ],
-                "latitude": 44.3526,
-                "longitude": 68.2251,
-                "geometryPoiId": "",
-                "managedByOrganization": "NPS",
-                "timeZone": "ET",
-                "webcamUrl": "",
-                "contacts": {
-                  "phoneNumbers": [],
-                  "emailAddresses": []
-                },
-                "fees": [
-                  {
-                    "cost": "30.00",
-                    "description": "From May to October, entrance into the park including Cadillac Mountain and Blue Hill Overlook require paying a park entrance fee.  Always display your pass in your vehicle when parking in the park. Please visit our Fees & Passes page for more information.",
-                    "title": "Acadia Entrance Fee - Per person or vehicle"
-                  }
-                ],
-                "operatingHours": [
-                  {
-                    "exceptions": [
-                      {
-                        "exceptionHours": {
-                          "wednesday": "All Day",
-                          "monday": "All Day",
-                          "thursday": "All Day",
-                          "sunday": "All Day",
-                          "tuesday": "All Day",
-                          "friday": "All Day",
-                          "saturday": "All Day"
-                        },
-                        "startDate": "2022-05-26",
-                        "name": "Memorial Day weekend",
-                        "endDate": "2022-05-29"
-                      },
-                      {
-                        "exceptionHours": {
-                          "wednesday": "All Day",
-                          "monday": "All Day",
-                          "thursday": "All Day",
-                          "sunday": "All Day",
-                          "tuesday": "All Day",
-                          "friday": "All Day",
-                          "saturday": "All Day"
-                        },
-                        "startDate": "2022-07-01",
-                        "name": "July 4th week",
-                        "endDate": "2022-07-07"
-                      },
-                      {
-                        "exceptionHours": {
-                          "wednesday": "All Day",
-                          "monday": "All Day",
-                          "thursday": "All Day",
-                          "sunday": "All Day",
-                          "tuesday": "All Day",
-                          "friday": "All Day",
-                          "saturday": "All Day"
-                        },
-                        "startDate": "2022-08-31",
-                        "name": "Labor Day weekend",
-                        "endDate": "2022-09-03"
-                      },
-                      {
-                        "exceptionHours": {
-                          "wednesday": "All Day",
-                          "monday": "All Day",
-                          "thursday": "All Day",
-                          "sunday": "All Day",
-                          "tuesday": "All Day",
-                          "friday": "All Day",
-                          "saturday": "All Day"
-                        },
-                        "startDate": "2022-09-08",
-                        "name": "Star Party",
-                        "endDate": "2022-09-08"
-                      },
-                      {
-                        "exceptionHours": {
-                          "wednesday": "All Day",
-                          "monday": "All Day",
-                          "thursday": "All Day",
-                          "sunday": "All Day",
-                          "tuesday": "All Day",
-                          "friday": "All Day",
-                          "saturday": "All Day"
-                        },
-                        "startDate": "2022-10-06",
-                        "name": "Columbus Day weekend",
-                        "endDate": "2022-10-08"
-                      },
-                      {
-                        "exceptionHours": {
-                          "wednesday": "All Day",
-                          "monday": "All Day",
-                          "thursday": "All Day",
-                          "sunday": "All Day",
-                          "tuesday": "All Day",
-                          "friday": "All Day",
-                          "saturday": "All Day"
-                        },
-                        "startDate": "2022-10-09",
-                        "name": "mid-late october",
-                        "endDate": "2022-10-31"
-                      },
-                      {
-                        "exceptionHours": {
-                          "wednesday": "Closed",
-                          "monday": "Closed",
-                          "thursday": "Closed",
-                          "sunday": "Closed",
-                          "tuesday": "Closed",
-                          "friday": "Closed",
-                          "saturday": "Closed"
-                        },
-                        "startDate": "2021-11-25",
-                        "name": "winter",
-                        "endDate": "2022-04-15"
-                      },
-                      {
-                        "exceptionHours": {
-                          "wednesday": "Closed",
-                          "monday": "Closed",
-                          "thursday": "Closed",
-                          "sunday": "Closed",
-                          "tuesday": "Closed",
-                          "friday": "Closed",
-                          "saturday": "Closed"
-                        },
-                        "startDate": "2021-12-01",
-                        "name": "Winter",
-                        "endDate": "2022-04-15"
-                      }
-                    ],
-                    "description": "",
-                    "standardHours": {
-                      "wednesday": "All Day",
-                      "monday": "All Day",
-                      "thursday": "All Day",
-                      "sunday": "All Day",
-                      "tuesday": "All Day",
-                      "friday": "All Day",
-                      "saturday": "All Day"
-                    },
-                    "name": "Cadillac Mountain"
-                  }
-                ],
-                "images": [],
-                "accessibility": {
-                  "isLotAccessibleToDisabled": true,
-                  "totalSpaces": 145,
-                  "numberofAdaSpaces": 6,
-                  "numberofAdaVanAccessbileSpaces": 6,
-                  "numberofAdaStepFreeSpaces": 6,
-                  "numberOfOversizeVehicleSpaces": 0,
-                  "adaFacilitiesDescription": ""
-                },
-                "liveStatus": {
-                  "isActive": true,
-                  "occupancy": "",
-                  "estimatedWaitTimeInMinutes": null,
-                  "description": "",
-                  "expirationDate": ""
+            }
+          },
+          "example": [
+            {
+              "id": "7DE234F8-0156-4ADE-BB94-CA01B72DA7C2",
+              "name": "Cadillac Mountain",
+              "altName": "",
+              "description": "Cadillac Mountain summit and Blue Hill Overlook",
+              "relatedParks": [
+                {
+                  "states": "ME",
+                  "parkCode": "acad",
+                  "designation": "National Park",
+                  "fullName": "Acadia National Park",
+                  "url": "https://www.nps.gov/acad/index.htm",
+                  "name": "Acadia"
                 }
+              ],
+              "latitude": 44.3526,
+              "longitude": 68.2251,
+              "geometryPoiId": "",
+              "managedByOrganization": "NPS",
+              "timeZone": "ET",
+              "webcamUrl": "",
+              "contacts": {
+                "phoneNumbers": [],
+                "emailAddresses": []
               },
-              {
-                "id": "F1E71B54-41B6-4674-A37F-E77C8034D419",
-                "name": "Echo Lake",
-                "altName": "",
-                "description": "Parking lot for Echo Lake Swim Beach, Beech Cliff Trail and Canada Cliffs Climbing. Lot closed to recreational vehicles (RVs) and trailer. Only buses with permits are allowed.",
-                "relatedParks": [
-                  {
-                    "states": "ME",
-                    "parkCode": "acad",
-                    "designation": "National Park",
-                    "fullName": "Acadia National Park",
-                    "url": "https://www.nps.gov/acad/index.htm",
-                    "name": "Acadia"
-                  }
-                ],
-                "latitude": 44.314308,
-                "longitude": -68.336482,
-                "geometryPoiId": "",
-                "managedByOrganization": "NPS",
-                "timeZone": "ET",
-                "webcamUrl": "",
-                "contacts": {
-                  "phoneNumbers": [],
-                  "emailAddresses": []
-                },
-                "fees": [
-                  {
-                    "cost": "30.00",
-                    "description": "From May to October, parking at Echo Lake requires the purchase of a park entrance pass.  Always display your pass in your vehicle when parked.  Please visit our Fees & Passes page for more information.",
-                    "title": "Acadia National Park Entrance Fee - Per Person or Vehicle"
-                  }
-                ],
-                "operatingHours": [
-                  {
-                    "exceptions": [
-                      {
-                        "exceptionHours": {
-                          "wednesday": "All Day",
-                          "monday": "All Day",
-                          "thursday": "All Day",
-                          "sunday": "All Day",
-                          "tuesday": "All Day",
-                          "friday": "All Day",
-                          "saturday": "All Day"
-                        },
-                        "startDate": "2022-05-26",
-                        "name": "Memorial Day weekend",
-                        "endDate": "2022-05-29"
-                      },
-                      {
-                        "exceptionHours": {
-                          "wednesday": "All Day",
-                          "monday": "All Day",
-                          "thursday": "All Day",
-                          "sunday": "All Day",
-                          "tuesday": "All Day",
-                          "friday": "All Day",
-                          "saturday": "All Day"
-                        },
-                        "startDate": "2022-07-01",
-                        "name": "July 4th week",
-                        "endDate": "2022-07-07"
-                      },
-                      {
-                        "exceptionHours": {
-                          "wednesday": "All Day",
-                          "monday": "All Day",
-                          "thursday": "All Day",
-                          "sunday": "All Day",
-                          "tuesday": "All Day",
-                          "friday": "All Day",
-                          "saturday": "All Day"
-                        },
-                        "startDate": "2022-08-31",
-                        "name": "Labor Day weekend",
-                        "endDate": "2022-09-03"
-                      },
-                      {
-                        "exceptionHours": {
-                          "wednesday": "All Day",
-                          "monday": "All Day",
-                          "thursday": "All Day",
-                          "sunday": "All Day",
-                          "tuesday": "All Day",
-                          "friday": "All Day",
-                          "saturday": "All Day"
-                        },
-                        "startDate": "2022-10-06",
-                        "name": "Columbus Day weekend",
-                        "endDate": "2022-10-08"
-                      },
-                      {
-                        "exceptionHours": {
-                          "wednesday": "Closed",
-                          "monday": "Closed",
-                          "thursday": "Closed",
-                          "sunday": "Closed",
-                          "tuesday": "Closed",
-                          "friday": "Closed",
-                          "saturday": "Closed"
-                        },
-                        "startDate": "2021-11-25",
-                        "name": "winter",
-                        "endDate": "2022-04-15"
-                      }
-                    ],
-                    "description": "",
-                    "standardHours": {
-                      "wednesday": "All Day",
-                      "monday": "All Day",
-                      "thursday": "All Day",
-                      "sunday": "All Day",
-                      "tuesday": "All Day",
-                      "friday": "All Day",
-                      "saturday": "All Day"
-                    },
-                    "name": "Echo Lake"
-                  }
-                ],
-                "images": [],
-                "accessibility": {
-                  "isLotAccessibleToDisabled": true,
-                  "totalSpaces": 89,
-                  "numberofAdaSpaces": 5,
-                  "numberofAdaVanAccessbileSpaces": 5,
-                  "numberofAdaStepFreeSpaces": 5,
-                  "numberOfOversizeVehicleSpaces": 0,
-                  "adaFacilitiesDescription": "a long ramp leads down to the restrooms and swim beach from the East side of the parking lot."
-                },
-                "liveStatus": {
-                  "isActive": true,
-                  "occupancy": "",
-                  "estimatedWaitTimeInMinutes": null,
-                  "description": "",
-                  "expirationDate": ""
+              "fees": [
+                {
+                  "cost": "30.00",
+                  "description": "From May to October, entrance into the park including Cadillac Mountain and Blue Hill Overlook require paying a park entrance fee.  Always display your pass in your vehicle when parking in the park. Please visit our Fees & Passes page for more information.",
+                  "title": "Acadia Entrance Fee - Per person or vehicle"
                 }
+              ],
+              "operatingHours": [
+                {
+                  "exceptions": [
+                    {
+                      "exceptionHours": {
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
+                      },
+                      "startDate": "2022-05-26",
+                      "name": "Memorial Day weekend",
+                      "endDate": "2022-05-29"
+                    },
+                    {
+                      "exceptionHours": {
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
+                      },
+                      "startDate": "2022-07-01",
+                      "name": "July 4th week",
+                      "endDate": "2022-07-07"
+                    },
+                    {
+                      "exceptionHours": {
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
+                      },
+                      "startDate": "2022-08-31",
+                      "name": "Labor Day weekend",
+                      "endDate": "2022-09-03"
+                    },
+                    {
+                      "exceptionHours": {
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
+                      },
+                      "startDate": "2022-09-08",
+                      "name": "Star Party",
+                      "endDate": "2022-09-08"
+                    },
+                    {
+                      "exceptionHours": {
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
+                      },
+                      "startDate": "2022-10-06",
+                      "name": "Columbus Day weekend",
+                      "endDate": "2022-10-08"
+                    },
+                    {
+                      "exceptionHours": {
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
+                      },
+                      "startDate": "2022-10-09",
+                      "name": "mid-late october",
+                      "endDate": "2022-10-31"
+                    },
+                    {
+                      "exceptionHours": {
+                        "wednesday": "Closed",
+                        "monday": "Closed",
+                        "thursday": "Closed",
+                        "sunday": "Closed",
+                        "tuesday": "Closed",
+                        "friday": "Closed",
+                        "saturday": "Closed"
+                      },
+                      "startDate": "2021-11-25",
+                      "name": "winter",
+                      "endDate": "2022-04-15"
+                    },
+                    {
+                      "exceptionHours": {
+                        "wednesday": "Closed",
+                        "monday": "Closed",
+                        "thursday": "Closed",
+                        "sunday": "Closed",
+                        "tuesday": "Closed",
+                        "friday": "Closed",
+                        "saturday": "Closed"
+                      },
+                      "startDate": "2021-12-01",
+                      "name": "Winter",
+                      "endDate": "2022-04-15"
+                    }
+                  ],
+                  "description": "",
+                  "standardHours": {
+                    "wednesday": "All Day",
+                    "monday": "All Day",
+                    "thursday": "All Day",
+                    "sunday": "All Day",
+                    "tuesday": "All Day",
+                    "friday": "All Day",
+                    "saturday": "All Day"
+                  },
+                  "name": "Cadillac Mountain"
+                }
+              ],
+              "images": [],
+              "accessibility": {
+                "isLotAccessibleToDisabled": true,
+                "totalSpaces": 145,
+                "numberofAdaSpaces": 6,
+                "numberofAdaVanAccessbileSpaces": 6,
+                "numberofAdaStepFreeSpaces": 6,
+                "numberOfOversizeVehicleSpaces": 0,
+                "adaFacilitiesDescription": ""
               },
-              {
-                "id": "00A1A3F7-6D63-4B36-A276-57D087167A91",
-                "name": "Jordan Pond",
-                "altName": "",
-                "description": "Jordan Pond North lot and boat launch area",
-                "relatedParks": [
-                  {
-                    "states": "ME",
-                    "parkCode": "acad",
-                    "designation": "National Park",
-                    "fullName": "Acadia National Park",
-                    "url": "https://www.nps.gov/acad/index.htm",
-                    "name": "Acadia"
-                  }
-                ],
-                "latitude": 44.321547,
-                "longitude": -68.251892,
-                "geometryPoiId": "",
-                "managedByOrganization": "NPS",
-                "timeZone": "ET",
-                "webcamUrl": "",
-                "contacts": {
-                  "phoneNumbers": [],
-                  "emailAddresses": []
-                },
-                "fees": [
-                  {
-                    "cost": "30.00",
-                    "description": "From May to October, parking at Jordan Pond House requires the purchase of a park entrance pass.  Always display your pass in your vehicle when parked.  Please visit our Fees & Passes page for more information.",
-                    "title": "Acadia National Park Entrance Fees"
-                  }
-                ],
-                "operatingHours": [
-                  {
-                    "exceptions": [
-                      {
-                        "exceptionHours": {
-                          "wednesday": "All Day",
-                          "monday": "All Day",
-                          "thursday": "All Day",
-                          "sunday": "All Day",
-                          "tuesday": "All Day",
-                          "friday": "All Day",
-                          "saturday": "All Day"
-                        },
-                        "startDate": "2022-05-25",
-                        "name": "Memorial Day weekend",
-                        "endDate": "2022-05-28"
-                      },
-                      {
-                        "exceptionHours": {
-                          "wednesday": "All Day",
-                          "monday": "All Day",
-                          "thursday": "All Day",
-                          "sunday": "All Day",
-                          "tuesday": "All Day",
-                          "friday": "All Day",
-                          "saturday": "All Day"
-                        },
-                        "startDate": "2022-07-01",
-                        "name": "July 4th week",
-                        "endDate": "2022-07-07"
-                      },
-                      {
-                        "exceptionHours": {
-                          "wednesday": "All Day",
-                          "monday": "All Day",
-                          "thursday": "All Day",
-                          "sunday": "All Day",
-                          "tuesday": "All Day",
-                          "friday": "All Day",
-                          "saturday": "All Day"
-                        },
-                        "startDate": "2022-08-31",
-                        "name": "Labor Day weekend",
-                        "endDate": "2022-09-03"
-                      },
-                      {
-                        "exceptionHours": {
-                          "wednesday": "All Day",
-                          "monday": "All Day",
-                          "thursday": "All Day",
-                          "sunday": "All Day",
-                          "tuesday": "All Day",
-                          "friday": "All Day",
-                          "saturday": "All Day"
-                        },
-                        "startDate": "2022-10-05",
-                        "name": "Columbus Day",
-                        "endDate": "2022-10-08"
-                      }
-                    ],
-                    "description": "",
-                    "standardHours": {
-                      "wednesday": "All Day",
-                      "monday": "All Day",
-                      "thursday": "All Day",
-                      "sunday": "All Day",
-                      "tuesday": "All Day",
-                      "friday": "All Day",
-                      "saturday": "All Day"
-                    },
-                    "name": "Jordan Pond"
-                  }
-                ],
-                "images": [],
-                "accessibility": {
-                  "isLotAccessibleToDisabled": true,
-                  "totalSpaces": 152,
-                  "numberofAdaSpaces": 2,
-                  "numberofAdaVanAccessbileSpaces": 2,
-                  "numberofAdaStepFreeSpaces": 2,
-                  "numberOfOversizeVehicleSpaces": 12,
-                  "adaFacilitiesDescription": ""
-                },
-                "liveStatus": {
-                  "isActive": true,
-                  "occupancy": "",
-                  "estimatedWaitTimeInMinutes": null,
-                  "description": "",
-                  "expirationDate": ""
-                }
-              },
-              {
-                "id": "42C4054C-D1E0-4655-B1F7-20F7C6271C3F",
-                "name": "Sand Beach Park Lot",
-                "altName": "",
-                "description": "Sand Beach Parking Lot serves Sand Beach, Ocean Path, and Great Head Trail. It is closed to buses, RVs, and trailers. The parking lot regularly fills during summer and you may see rangers directing vehicles at the intersection or parking lot. Follow their instructions and if parking is full or temporarily closed, be prepared to visit the site at a different time. Use the right-hand lane parking along the Park Loop Road as an alternative.",
-                "relatedParks": [
-                  {
-                    "states": "ME",
-                    "parkCode": "acad",
-                    "designation": "National Park",
-                    "fullName": "Acadia National Park",
-                    "url": "https://www.nps.gov/acad/index.htm",
-                    "name": "Acadia"
-                  }
-                ],
-                "latitude": 44.330185,
-                "longitude": -68.183989,
-                "geometryPoiId": "",
-                "managedByOrganization": "NPS",
-                "timeZone": "ET",
-                "webcamUrl": "",
-                "contacts": {
-                  "phoneNumbers": [],
-                  "emailAddresses": []
-                },
-                "fees": [
-                  {
-                    "cost": "30.00",
-                    "description": "From May to October, parking at Sand Beach requires the purchase of a park entrance pass.  Always display your pass in your vehicle when parked.  Please visit our Fees & Passes page for more information.",
-                    "title": "Acadia National Park Entrance Fees"
-                  }
-                ],
-                "operatingHours": [
-                  {
-                    "exceptions": [
-                      {
-                        "exceptionHours": {
-                          "wednesday": "All Day",
-                          "monday": "All Day",
-                          "thursday": "All Day",
-                          "sunday": "All Day",
-                          "tuesday": "All Day",
-                          "friday": "All Day",
-                          "saturday": "All Day"
-                        },
-                        "startDate": "2022-05-25",
-                        "name": "Memorial Day",
-                        "endDate": "2022-05-28"
-                      },
-                      {
-                        "exceptionHours": {
-                          "wednesday": "All Day",
-                          "monday": "All Day",
-                          "thursday": "All Day",
-                          "sunday": "All Day",
-                          "tuesday": "All Day",
-                          "friday": "All Day",
-                          "saturday": "All Day"
-                        },
-                        "startDate": "2022-07-01",
-                        "name": "July 4th Week",
-                        "endDate": "2022-07-07"
-                      },
-                      {
-                        "exceptionHours": {
-                          "wednesday": "All Day",
-                          "monday": "All Day",
-                          "thursday": "All Day",
-                          "sunday": "All Day",
-                          "tuesday": "All Day",
-                          "friday": "All Day",
-                          "saturday": "All Day"
-                        },
-                        "startDate": "2022-08-31",
-                        "name": "Labor Day",
-                        "endDate": "2022-09-03"
-                      },
-                      {
-                        "exceptionHours": {
-                          "wednesday": "All Day",
-                          "monday": "All Day",
-                          "thursday": "All Day",
-                          "sunday": "All Day",
-                          "tuesday": "All Day",
-                          "friday": "All Day",
-                          "saturday": "All Day"
-                        },
-                        "startDate": "2022-10-05",
-                        "name": "Columbus Day Weekend",
-                        "endDate": "2022-10-08"
-                      }
-                    ],
-                    "description": "",
-                    "standardHours": {
-                      "wednesday": "All Day",
-                      "monday": "All Day",
-                      "thursday": "All Day",
-                      "sunday": "All Day",
-                      "tuesday": "All Day",
-                      "friday": "All Day",
-                      "saturday": "All Day"
-                    },
-                    "name": "Sand Beach"
-                  }
-                ],
-                "images": [],
-                "accessibility": {
-                  "isLotAccessibleToDisabled": true,
-                  "totalSpaces": 101,
-                  "numberofAdaSpaces": 5,
-                  "numberofAdaVanAccessbileSpaces": 5,
-                  "numberofAdaStepFreeSpaces": 5,
-                  "numberOfOversizeVehicleSpaces": 0,
-                  "adaFacilitiesDescription": "While the comfort stations are accessible, to reach Sand Beach visitors must use a set of granite stairs."
-                },
-                "liveStatus": {
-                  "isActive": true,
-                  "occupancy": "Light",
-                  "estimatedWaitTimeInMinutes": 0,
-                  "description": "",
-                  "expirationDate": ""
-                }
+              "liveStatus": {
+                "isActive": true,
+                "occupancy": "",
+                "estimatedWaitTimeInMinutes": null,
+                "description": "",
+                "expirationDate": ""
               }
-            ]
-          }
+            },
+            {
+              "id": "F1E71B54-41B6-4674-A37F-E77C8034D419",
+              "name": "Echo Lake",
+              "altName": "",
+              "description": "Parking lot for Echo Lake Swim Beach, Beech Cliff Trail and Canada Cliffs Climbing. Lot closed to recreational vehicles (RVs) and trailer. Only buses with permits are allowed.",
+              "relatedParks": [
+                {
+                  "states": "ME",
+                  "parkCode": "acad",
+                  "designation": "National Park",
+                  "fullName": "Acadia National Park",
+                  "url": "https://www.nps.gov/acad/index.htm",
+                  "name": "Acadia"
+                }
+              ],
+              "latitude": 44.314308,
+              "longitude": -68.336482,
+              "geometryPoiId": "",
+              "managedByOrganization": "NPS",
+              "timeZone": "ET",
+              "webcamUrl": "",
+              "contacts": {
+                "phoneNumbers": [],
+                "emailAddresses": []
+              },
+              "fees": [
+                {
+                  "cost": "30.00",
+                  "description": "From May to October, parking at Echo Lake requires the purchase of a park entrance pass.  Always display your pass in your vehicle when parked.  Please visit our Fees & Passes page for more information.",
+                  "title": "Acadia National Park Entrance Fee - Per Person or Vehicle"
+                }
+              ],
+              "operatingHours": [
+                {
+                  "exceptions": [
+                    {
+                      "exceptionHours": {
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
+                      },
+                      "startDate": "2022-05-26",
+                      "name": "Memorial Day weekend",
+                      "endDate": "2022-05-29"
+                    },
+                    {
+                      "exceptionHours": {
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
+                      },
+                      "startDate": "2022-07-01",
+                      "name": "July 4th week",
+                      "endDate": "2022-07-07"
+                    },
+                    {
+                      "exceptionHours": {
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
+                      },
+                      "startDate": "2022-08-31",
+                      "name": "Labor Day weekend",
+                      "endDate": "2022-09-03"
+                    },
+                    {
+                      "exceptionHours": {
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
+                      },
+                      "startDate": "2022-10-06",
+                      "name": "Columbus Day weekend",
+                      "endDate": "2022-10-08"
+                    },
+                    {
+                      "exceptionHours": {
+                        "wednesday": "Closed",
+                        "monday": "Closed",
+                        "thursday": "Closed",
+                        "sunday": "Closed",
+                        "tuesday": "Closed",
+                        "friday": "Closed",
+                        "saturday": "Closed"
+                      },
+                      "startDate": "2021-11-25",
+                      "name": "winter",
+                      "endDate": "2022-04-15"
+                    }
+                  ],
+                  "description": "",
+                  "standardHours": {
+                    "wednesday": "All Day",
+                    "monday": "All Day",
+                    "thursday": "All Day",
+                    "sunday": "All Day",
+                    "tuesday": "All Day",
+                    "friday": "All Day",
+                    "saturday": "All Day"
+                  },
+                  "name": "Echo Lake"
+                }
+              ],
+              "images": [],
+              "accessibility": {
+                "isLotAccessibleToDisabled": true,
+                "totalSpaces": 89,
+                "numberofAdaSpaces": 5,
+                "numberofAdaVanAccessbileSpaces": 5,
+                "numberofAdaStepFreeSpaces": 5,
+                "numberOfOversizeVehicleSpaces": 0,
+                "adaFacilitiesDescription": "a long ramp leads down to the restrooms and swim beach from the East side of the parking lot."
+              },
+              "liveStatus": {
+                "isActive": true,
+                "occupancy": "",
+                "estimatedWaitTimeInMinutes": null,
+                "description": "",
+                "expirationDate": ""
+              }
+            },
+            {
+              "id": "00A1A3F7-6D63-4B36-A276-57D087167A91",
+              "name": "Jordan Pond",
+              "altName": "",
+              "description": "Jordan Pond North lot and boat launch area",
+              "relatedParks": [
+                {
+                  "states": "ME",
+                  "parkCode": "acad",
+                  "designation": "National Park",
+                  "fullName": "Acadia National Park",
+                  "url": "https://www.nps.gov/acad/index.htm",
+                  "name": "Acadia"
+                }
+              ],
+              "latitude": 44.321547,
+              "longitude": -68.251892,
+              "geometryPoiId": "",
+              "managedByOrganization": "NPS",
+              "timeZone": "ET",
+              "webcamUrl": "",
+              "contacts": {
+                "phoneNumbers": [],
+                "emailAddresses": []
+              },
+              "fees": [
+                {
+                  "cost": "30.00",
+                  "description": "From May to October, parking at Jordan Pond House requires the purchase of a park entrance pass.  Always display your pass in your vehicle when parked.  Please visit our Fees & Passes page for more information.",
+                  "title": "Acadia National Park Entrance Fees"
+                }
+              ],
+              "operatingHours": [
+                {
+                  "exceptions": [
+                    {
+                      "exceptionHours": {
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
+                      },
+                      "startDate": "2022-05-25",
+                      "name": "Memorial Day weekend",
+                      "endDate": "2022-05-28"
+                    },
+                    {
+                      "exceptionHours": {
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
+                      },
+                      "startDate": "2022-07-01",
+                      "name": "July 4th week",
+                      "endDate": "2022-07-07"
+                    },
+                    {
+                      "exceptionHours": {
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
+                      },
+                      "startDate": "2022-08-31",
+                      "name": "Labor Day weekend",
+                      "endDate": "2022-09-03"
+                    },
+                    {
+                      "exceptionHours": {
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
+                      },
+                      "startDate": "2022-10-05",
+                      "name": "Columbus Day",
+                      "endDate": "2022-10-08"
+                    }
+                  ],
+                  "description": "",
+                  "standardHours": {
+                    "wednesday": "All Day",
+                    "monday": "All Day",
+                    "thursday": "All Day",
+                    "sunday": "All Day",
+                    "tuesday": "All Day",
+                    "friday": "All Day",
+                    "saturday": "All Day"
+                  },
+                  "name": "Jordan Pond"
+                }
+              ],
+              "images": [],
+              "accessibility": {
+                "isLotAccessibleToDisabled": true,
+                "totalSpaces": 152,
+                "numberofAdaSpaces": 2,
+                "numberofAdaVanAccessbileSpaces": 2,
+                "numberofAdaStepFreeSpaces": 2,
+                "numberOfOversizeVehicleSpaces": 12,
+                "adaFacilitiesDescription": ""
+              },
+              "liveStatus": {
+                "isActive": true,
+                "occupancy": "",
+                "estimatedWaitTimeInMinutes": null,
+                "description": "",
+                "expirationDate": ""
+              }
+            },
+            {
+              "id": "42C4054C-D1E0-4655-B1F7-20F7C6271C3F",
+              "name": "Sand Beach Park Lot",
+              "altName": "",
+              "description": "Sand Beach Parking Lot serves Sand Beach, Ocean Path, and Great Head Trail. It is closed to buses, RVs, and trailers. The parking lot regularly fills during summer and you may see rangers directing vehicles at the intersection or parking lot. Follow their instructions and if parking is full or temporarily closed, be prepared to visit the site at a different time. Use the right-hand lane parking along the Park Loop Road as an alternative.",
+              "relatedParks": [
+                {
+                  "states": "ME",
+                  "parkCode": "acad",
+                  "designation": "National Park",
+                  "fullName": "Acadia National Park",
+                  "url": "https://www.nps.gov/acad/index.htm",
+                  "name": "Acadia"
+                }
+              ],
+              "latitude": 44.330185,
+              "longitude": -68.183989,
+              "geometryPoiId": "",
+              "managedByOrganization": "NPS",
+              "timeZone": "ET",
+              "webcamUrl": "",
+              "contacts": {
+                "phoneNumbers": [],
+                "emailAddresses": []
+              },
+              "fees": [
+                {
+                  "cost": "30.00",
+                  "description": "From May to October, parking at Sand Beach requires the purchase of a park entrance pass.  Always display your pass in your vehicle when parked.  Please visit our Fees & Passes page for more information.",
+                  "title": "Acadia National Park Entrance Fees"
+                }
+              ],
+              "operatingHours": [
+                {
+                  "exceptions": [
+                    {
+                      "exceptionHours": {
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
+                      },
+                      "startDate": "2022-05-25",
+                      "name": "Memorial Day",
+                      "endDate": "2022-05-28"
+                    },
+                    {
+                      "exceptionHours": {
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
+                      },
+                      "startDate": "2022-07-01",
+                      "name": "July 4th Week",
+                      "endDate": "2022-07-07"
+                    },
+                    {
+                      "exceptionHours": {
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
+                      },
+                      "startDate": "2022-08-31",
+                      "name": "Labor Day",
+                      "endDate": "2022-09-03"
+                    },
+                    {
+                      "exceptionHours": {
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
+                      },
+                      "startDate": "2022-10-05",
+                      "name": "Columbus Day Weekend",
+                      "endDate": "2022-10-08"
+                    }
+                  ],
+                  "description": "",
+                  "standardHours": {
+                    "wednesday": "All Day",
+                    "monday": "All Day",
+                    "thursday": "All Day",
+                    "sunday": "All Day",
+                    "tuesday": "All Day",
+                    "friday": "All Day",
+                    "saturday": "All Day"
+                  },
+                  "name": "Sand Beach"
+                }
+              ],
+              "images": [],
+              "accessibility": {
+                "isLotAccessibleToDisabled": true,
+                "totalSpaces": 101,
+                "numberofAdaSpaces": 5,
+                "numberofAdaVanAccessbileSpaces": 5,
+                "numberofAdaStepFreeSpaces": 5,
+                "numberOfOversizeVehicleSpaces": 0,
+                "adaFacilitiesDescription": "While the comfort stations are accessible, to reach Sand Beach visitors must use a set of granite stairs."
+              },
+              "liveStatus": {
+                "isActive": true,
+                "occupancy": "Light",
+                "estimatedWaitTimeInMinutes": 0,
+                "description": "",
+                "expirationDate": ""
+              }
+            }
+          ]
         },
         "limit": {
           "type": "string",
@@ -6959,55 +7056,53 @@
                   "type": "Mailing"
                 }
               ],
-              "contacts": [
-                {
-                  "phoneNumbers": [
-                    {
-                      "phoneNumber": "3073447381",
-                      "description": "",
-                      "extension": "",
-                      "type": "Voice"
-                    },
-                    {
-                      "phoneNumber": "3073442014",
-                      "description": "",
-                      "extension": "",
-                      "type": "Fax"
-                    },
-                    {
-                      "phoneNumber": "3073442386",
-                      "description": "",
-                      "extension": "",
-                      "type": "TTY"
-                    }
-                  ],
-                  "emailAddresses": [
-                    {
-                      "emailAddress": "yell_visitor_services@nps.gov",
-                      "description": ""
-                    }
-                  ]
-                }
-              ],
+              "contacts": {
+                "phoneNumbers": [
+                  {
+                    "phoneNumber": "3073447381",
+                    "description": "",
+                    "extension": "",
+                    "type": "Voice"
+                  },
+                  {
+                    "phoneNumber": "3073442014",
+                    "description": "",
+                    "extension": "",
+                    "type": "Fax"
+                  },
+                  {
+                    "phoneNumber": "3073442386",
+                    "description": "",
+                    "extension": "",
+                    "type": "TTY"
+                  }
+                ],
+                "emailAddresses": [
+                  {
+                    "emailAddress": "yell_visitor_services@nps.gov",
+                    "description": ""
+                  }
+                ]
+              },
               "description": "Visit Yellowstone and experience the world's first national park. Marvel at a volcano's hidden power rising up in colorful hot springs, mudpots, and geysers. Explore mountains, forests, and lakes to watch wildlife and witness the drama of the natural world unfold. Discover the history that led to the conservation of our national treasures 'for the benefit and enjoyment of the people.'",
               "designation": "National Park",
               "directionsInfo": "Yellowstone National Park covers nearly 3,500 square miles in the northwest corner of Wyoming (3% of the park is in Montana and 1% is in Idaho). Yellowstone has five entrance stations, and several are closed to regular vehicles during winter. It takes many hours to drive between these entrances, so be sure to check the status of roads at the entrance you intend to use while planning your trip and before you arrive.",
               "directionsUrl": "https://www.nps.gov/yell/planyourvisit/directions.htm",
               "entranceFees": [
                 {
-                  "cost": 30,
+                  "cost": "30",
                   "description": "7-day pass for Yellowstone National Park",
                   "title": "Yellowstone (private, non-commercial vehicle)"
                 },
                 {
-                  "cost": 25,
+                  "cost": "25",
                   "description": "7-day pass for Yellowstone National Park. Snowmobile entry limited to guided tours or permit holders.",
                   "title": "Yellowstone (motorcycle or snowmobile)"
                 }
               ],
               "entrancePasses": [
                 {
-                  "cost": 60,
+                  "cost": "60",
                   "description": "Annual pass providing free entrance to Yellowstone National Park for one year; valid through the month of purchase. Winter use: On a snowmobile, admits the signers and children (residing in the same household under the age of 21). In a snowcoach or shuttle, it admits the signers and up to three additional persons (16 and older) for a total of four people.",
                   "title": "Yellowstone National Park Annual Pass"
                 }
@@ -7019,7 +7114,6 @@
                   "credit": "NPS/Jim Peaco",
                   "altText": "Crowd watching Aurum Geyser erupt",
                   "title": "Aurum Geyser",
-                  "id": 1789,
                   "caption": "Aurum Geyser Erupting",
                   "url": "https://www.nps.gov/common/uploads/structured_data/3C7D2FBB-1DD8-B71B-0BED99731011CFCE.jpg"
                 },
@@ -7027,7 +7121,6 @@
                   "credit": "NPS/Neal Herbert",
                   "altText": "Photo of bison in Lamar Valley",
                   "title": "Bison in Lamar Valley",
-                  "id": 1792,
                   "caption": "Bison in Lamar Valley",
                   "url": "https://www.nps.gov/common/uploads/structured_data/3C7D34E6-1DD8-B71B-0BBB1C0F478318E2.jpg"
                 }
@@ -7046,67 +7139,59 @@
                 {
                   "name": "All Park Hours",
                   "description": "Yellowstone is open daily, year-round, although activities and services are limited at night and certain times of year. The park has five entrance stations, but not all entrance stations are open year-round. Make sure to carefully read about access at each station at different times of year. And remember, all dates are weather dependent!\n\nPlease note that camping is possible only in designated campgrounds.",
-                  "standardHours": [
-                    {
-                      "sunday": "All Day",
-                      "monday": "All Day",
-                      "tuesday": "All Day",
-                      "wednesday": "All Day",
-                      "thursday": "All Day",
-                      "friday": "All Day",
-                      "saturday": "All Day"
-                    }
-                  ],
+                  "standardHours": {
+                    "sunday": "All Day",
+                    "monday": "All Day",
+                    "tuesday": "All Day",
+                    "wednesday": "All Day",
+                    "thursday": "All Day",
+                    "friday": "All Day",
+                    "saturday": "All Day"
+                  },
                   "exceptions": [
                     {
                       "name": "Thanksgiving Day",
-                      "startDate": "{ts '2015-11-26 00:00:00'}",
-                      "endDate": "{ts '2015-11-26 00:00:00'}",
-                      "exceptionHours": [
-                        {
-                          "sunday": "Closed",
-                          "monday": "Closed",
-                          "tuesday": "Closed",
-                          "wednesday": "Closed",
-                          "thursday": "Closed",
-                          "friday": "Closed",
-                          "saturday": "Closed"
-                        }
-                      ]
+                      "startDate": "2015-11-26",
+                      "endDate": "2015-11-26",
+                      "exceptionHours": {
+                        "sunday": "Closed",
+                        "monday": "Closed",
+                        "tuesday": "Closed",
+                        "wednesday": "Closed",
+                        "thursday": "Closed",
+                        "friday": "Closed",
+                        "saturday": "Closed"
+                      }
                     },
                     {
                       "name": "Christmas Day",
-                      "startDate": "{ts '2015-12-25 00:00:00'}",
-                      "endDate": "{ts '2015-12-25 00:00:00'}",
-                      "exceptionHours": [
-                        {
-                          "sunday": "Closed",
-                          "monday": "Closed",
-                          "tuesday": "Closed",
-                          "wednesday": "Closed",
-                          "thursday": "Closed",
-                          "friday": "Closed",
-                          "saturday": "Closed"
-                        }
-                      ]
+                      "startDate": "2015-12-25",
+                      "endDate": "2015-12-25",
+                      "exceptionHours": {
+                        "sunday": "Closed",
+                        "monday": "Closed",
+                        "tuesday": "Closed",
+                        "wednesday": "Closed",
+                        "thursday": "Closed",
+                        "friday": "Closed",
+                        "saturday": "Closed"
+                      }
                     }
                   ]
                 },
                 {
                   "name": "West Entrance",
                   "description": "Adjacent to the town of West Yellowstone, MT, the West Entrance is usually open (weather dependent) to wheeled vehicles from the third Friday in April through early November, and to tracked-oversnow (snowmobiles and snowcoaches) vehicles from December 15 to March 15.",
-                  "standardHours": [
-                    {
-                      "sunday": "Closed",
-                      "monday": "Closed",
-                      "tuesday": "Closed",
-                      "wednesday": "Closed",
-                      "thursday": "Closed",
-                      "friday": "Closed",
-                      "saturday": "Closed"
-                    }
-                  ],
-                  "exceptions": null
+                  "standardHours": {
+                    "sunday": "Closed",
+                    "monday": "Closed",
+                    "tuesday": "Closed",
+                    "wednesday": "Closed",
+                    "thursday": "Closed",
+                    "friday": "Closed",
+                    "saturday": "Closed"
+                  },
+                  "exceptions": []
                 }
               ],
               "parkCode": "yell",
@@ -7262,7 +7347,7 @@
                           }
                         }
                       },
-                      "example": ""
+                      "example": []
                     },
                     "altText": {
                       "type": "string",
@@ -7327,7 +7412,7 @@
                 "items": {
                   "type": "object"
                 },
-                "example": "[]"
+                "example": []
               },
               "relatedParks": {
                 "type": "array",
@@ -7638,98 +7723,80 @@
                   }
                 }
               }
-            },
-            "example": [
-              {
-                "latLong": "63.71951367351548,-148.96849470706263",
-                "longitude": "-148.96849470706263",
-                "geometryPoiId": "8793be28-0d54-493f-8556-877e7ecbe937",
-                "relatedParks": [
-                  {
-                    "states": "AK",
-                    "fullName": "Denali National Park & Preserve",
-                    "url": "https://www.nps.gov/dena/index.htm",
-                    "parkCode": "dena",
-                    "designation": "National Park & Preserve",
-                    "name": "Denali"
-                  }
-                ],
-                "url": "https://www.nps.gov/places/sled-dog-kennels.htm",
-                "images": [],
-                "imageTitle": "",
-                "imageCaption": "",
-                "imageId": "",
-                "npmapId": "",
-                "tags": [],
-                "amenities": [
-                  "Accessibility - Accessible Restroom",
-                  "Accessibility- Assistive Listening Systems",
-                  "Accessibility - Tactile Exhibit",
-                  "Accessibility - Wheelchair Accessible",
-                  "Amphitheatre",
-                  "Benches/Seating",
-                  "Bus/Shuttle Stop",
-                  "Cellular Signal",
-                  "First Aid Kit Available",
-                  "Historical/Interpretive Information/Exhibits",
-                  "Information",
-                  "Information Kiosk/Bulletin Board",
-                  "Information - Ranger/Staff Member Present",
-                  "Information - Maps Available",
-                  "Kennel",
-                  "Parking - Auto",
-                  "Restroom",
-                  "Toilet - Vault/Composting"
-                ],
-                "id": "BCCAC67C-519B-49B9-BBB1-6DF3BFE3FF31",
-                "quickFacts": {
-                  "tagbased": [],
-                  "userdefined": [
-                    {
-                      "data": []
-                    }
-                  ],
-                  "standard": [
-                    {
-                      "data": [
-                        {
-                          "id": "5C252B96-2DEB-4EF4-91D1-B5D2B202FCD7",
-                          "value": "Mile 3.4, Denali Park Road",
-                          "name": "Location: "
-                        },
-                        {
-                          "id": "208F1B3C-44DC-4CF5-9A61-9B26A364D701",
-                          "value": "The only working sled dog kennels in the National Park System",
-                          "name": "Significance: "
-                        }
-                      ]
-                    }
-                  ]
+            }
+          },
+          "example": [
+            {
+              "latLong": "63.71951367351548,-148.96849470706263",
+              "longitude": "-148.96849470706263",
+              "geometryPoiId": "8793be28-0d54-493f-8556-877e7ecbe937",
+              "relatedParks": [
+                {
+                  "states": "AK",
+                  "fullName": "Denali National Park & Preserve",
+                  "url": "https://www.nps.gov/dena/index.htm",
+                  "parkCode": "dena",
+                  "designation": "National Park & Preserve",
+                  "name": "Denali"
+                }
+              ],
+              "url": "https://www.nps.gov/places/sled-dog-kennels.htm",
+              "images": [],
+              "npmapId": "",
+              "tags": [],
+              "amenities": [
+                "Accessibility - Accessible Restroom",
+                "Accessibility- Assistive Listening Systems",
+                "Accessibility - Tactile Exhibit",
+                "Accessibility - Wheelchair Accessible",
+                "Amphitheatre",
+                "Benches/Seating",
+                "Bus/Shuttle Stop",
+                "Cellular Signal",
+                "First Aid Kit Available",
+                "Historical/Interpretive Information/Exhibits",
+                "Information",
+                "Information Kiosk/Bulletin Board",
+                "Information - Ranger/Staff Member Present",
+                "Information - Maps Available",
+                "Kennel",
+                "Parking - Auto",
+                "Restroom",
+                "Toilet - Vault/Composting"
+              ],
+              "id": "BCCAC67C-519B-49B9-BBB1-6DF3BFE3FF31",
+              "quickFacts": [
+                {
+                  "id": "5C252B96-2DEB-4EF4-91D1-B5D2B202FCD7",
+                  "value": "Mile 3.4, Denali Park Road",
+                  "name": "Location: "
                 },
-                "imageCredit": "",
-                "imageUrl": "",
-                "relatedOrganizations": [],
-                "audioDescription": "In the center is the historic kennels building. It is a brown, wooden, two story building. There are two entrances to the building on the front side. The door to the west has the words Sled Room above it. On the western side of the building is the dog yard where about 30 dogs live. A gravel path leads visitors through the yard. To the north side are two rows of dog houses made out of wood logs. Each dog is tethered to their housing area. On the south side of the dog yard is a row of pens made of wire fencing. There is one dog in each pen and they also each have a log dog house. The dogs can be on their log house, in it, or next to it. The dogs are all different colors, mixes of brown, white, black, and gray. On the eastern side of the kennels building are the stands for the sled dog demonstration. Steps lead up to different rows where people can stand and watch the presentation. In the first row of most of the sections there is bench seating. In the demonstration area, there is a rectangular gravel pit with a pair of antlers, pile of wood, and sound equipment to be used as props in the demonstration.",
-                "managedByUrl": "",
-                "isOpenToPublic": "1",
-                "imageAltText": "",
-                "isManagedByNps": "1",
-                "listingDescription": "Explore the only working sled dog kennels in the National Park System.",
-                "managedByOrg": "",
-                "title": "Sled Dog Kennels",
-                "latitude": "63.71951367351548",
-                "bodyText": "Located about 3 miles inside the park at Park Headquarters, the sled dog kennels are open year-round for visitors to meet some of the 30 dogs who live and work in Denali.<br />\n<br />\nDuring the summer, sled dog demonstrations are offered daily. Rangers and dogs work together to demonstrate a traditional Alaskan mode of travel. These unique, 30 minute programs include an opportunity to tour the park kennels and visit Denali's Alaskan huskies. Demonstrations are given three times daily in peak season (June 1 through September 1), at 10 am, 2 pm and 4 pm. Ask at the visitor center for demonstration times outside of peak season (May and September).<br />\n<br />\nIn winter, the dogs and rangers are frequently busy working deep in the park rather than at the kennels, so you may wish to inquire at the visitor center before coming to see if the dogs are around.<br />\n<br />\nWelcoming visitors to the dog yard, the historic kennels building is the oldest building in the park that is still used for its original purpose. Step inside the Sled Room to learn about the history of mushing in Alaska and in the park. Sled dogs and rangers continue to work together to protect the wilderness of the park as they have since the 1920s.",
-                "multimedia": [
-                  {
-                    "title": "The Worthington Farm",
-                    "id": "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
-                    "type": "multimedia/videos",
-                    "url": "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883"
-                  }
-                ]
-              }
-            ]
-          }
+                {
+                  "id": "208F1B3C-44DC-4CF5-9A61-9B26A364D701",
+                  "value": "The only working sled dog kennels in the National Park System",
+                  "name": "Significance: "
+                }
+              ],
+              "relatedOrganizations": [],
+              "audioDescription": "In the center is the historic kennels building. It is a brown, wooden, two story building. There are two entrances to the building on the front side. The door to the west has the words Sled Room above it. On the western side of the building is the dog yard where about 30 dogs live. A gravel path leads visitors through the yard. To the north side are two rows of dog houses made out of wood logs. Each dog is tethered to their housing area. On the south side of the dog yard is a row of pens made of wire fencing. There is one dog in each pen and they also each have a log dog house. The dogs can be on their log house, in it, or next to it. The dogs are all different colors, mixes of brown, white, black, and gray. On the eastern side of the kennels building are the stands for the sled dog demonstration. Steps lead up to different rows where people can stand and watch the presentation. In the first row of most of the sections there is bench seating. In the demonstration area, there is a rectangular gravel pit with a pair of antlers, pile of wood, and sound equipment to be used as props in the demonstration.",
+              "managedByUrl": "",
+              "isOpenToPublic": "1",
+              "isManagedByNps": "1",
+              "listingDescription": "Explore the only working sled dog kennels in the National Park System.",
+              "managedByOrg": "",
+              "title": "Sled Dog Kennels",
+              "latitude": "63.71951367351548",
+              "bodyText": "Located about 3 miles inside the park at Park Headquarters, the sled dog kennels are open year-round for visitors to meet some of the 30 dogs who live and work in Denali.<br />\n<br />\nDuring the summer, sled dog demonstrations are offered daily. Rangers and dogs work together to demonstrate a traditional Alaskan mode of travel. These unique, 30 minute programs include an opportunity to tour the park kennels and visit Denali's Alaskan huskies. Demonstrations are given three times daily in peak season (June 1 through September 1), at 10 am, 2 pm and 4 pm. Ask at the visitor center for demonstration times outside of peak season (May and September).<br />\n<br />\nIn winter, the dogs and rangers are frequently busy working deep in the park rather than at the kennels, so you may wish to inquire at the visitor center before coming to see if the dogs are around.<br />\n<br />\nWelcoming visitors to the dog yard, the historic kennels building is the oldest building in the park that is still used for its original purpose. Step inside the Sled Room to learn about the history of mushing in Alaska and in the park. Sled dogs and rangers continue to work together to protect the wilderness of the park as they have since the 1920s.",
+              "multimedia": [
+                {
+                  "title": "The Worthington Farm",
+                  "id": "4FD5B472-D6D9-43AA-9532-2AC5BF920883",
+                  "type": "multimedia/videos",
+                  "url": "https://www.nps.gov/media/video/view.htm?id=4FD5B472-D6D9-43AA-9532-2AC5BF920883"
+                }
+              ]
+            }
+          ]
         },
         "limit": {
           "type": "string",
@@ -7758,12 +7825,12 @@
                       "type": "array",
                       "items": {
                         "type": "number",
-                        "description": "arrays of geocoordinates",
-                        "example": [
-                          -119.702835431915,
-                          37.6557553889563
-                        ]
-                      }
+                        "description": "arrays of geocoordinates"
+                      },
+                      "example": [
+                        -119.702835431915,
+                        37.6557553889563
+                      ]
                     }
                   },
                   "type": {
@@ -8097,7 +8164,7 @@
                           "aspectRatio": {
                             "type": "string",
                             "description": "the image ratio for this cropped image",
-                            "example": 3
+                            "example": "3"
                           },
                           "url": {
                             "type": "string",
@@ -8244,7 +8311,7 @@
               "arePetsPermitted": {
                 "type": "string",
                 "description": "",
-                "example": false
+                "example": "false"
               },
               "timeOfDay": {
                 "type": "array",
@@ -8285,100 +8352,100 @@
                 "type": "number",
                 "description": "The relevance score is a numeric calculation of how much your item meets the criteria of your q (query text) search. This is normally coupled with a sort value of -relevanceScore. A higher value means that your item meets the criteria of the q search with a higher frequency and accuracy."
               }
-            },
-            "example": [
-              {
-                "location": "Northeast Area",
-                "seasonDescription": "",
-                "accessibilityInformation": "<p>This skier-tracked easy trail follows a fairly flat old road after crossing a narrow bridge over Soda Butte Creek at the trailhead. The trail elevation gain/loss is 132 feet. Service dogs allowed with backcountry access permit.</p>",
-                "longitude": "",
-                "geometryPoiId": "8793be28-0d54-493f-8556-877e7ecbe937",
-                "relatedParks": [
-                  {
-                    "states": "ID,MT,WY",
-                    "fullName": "Yellowstone National Park",
-                    "url": "https://www.nps.gov/yell/index.htm",
-                    "parkCode": "yell",
-                    "designation": "National Park",
-                    "name": "Yellowstone"
-                  }
-                ],
-                "isReservationRequired": "false",
-                "ageDescription": "",
-                "url": "https://www.nps.gov/thingstodo/yell-bannock-ski-trail.htm",
-                "petsDescription": "Qualified service animals are welcome throughout the park and in all park facilities. However, they must be leashed and under your control at all times. This trail requires a backcountry access pass for service animals.<br />\n<br />\n<br />\n ",
-                "timeOfDayDescription": "",
-                "images": [
-                  {
-                    "credit": "",
-                    "crops": [
-                      {
-                        "aspectratio": "3",
-                        "url": "https://www.nps.gov/common/uploads/cropped_image/primary/20970C88-BB81-37F7-5FB606A6D4A87D9B.jpeg"
-                      },
-                      {
-                        "aspectratio": "1",
-                        "url": "https://www.nps.gov/common/uploads/cropped_image/secondary/20970C88-BB81-37F7-5FB606A6D4A87D9B.jpeg"
-                      }
-                    ],
-                    "altText": "The Bannock Trail is a mostly flat through mature forest.",
-                    "title": "",
-                    "caption": "",
-                    "url": "https://www.nps.gov/common/uploads/cropped_image/20970C88-BB81-37F7-5FB606A6D4A87D9B.jpeg"
-                  }
-                ],
-                "feeDescription": "",
-                "id": "8B175753-D37B-4DD5-BF96-00383F7BB46C",
-                "age": "",
-                "relatedOrganizations": [],
-                "arePetsPermittedWithRestrictions": "false",
-                "activities": [
-                  {
-                    "id": "F9B1D433-6B86-4804-AED7-B50A519A3B7C",
-                    "name": "Skiing"
-                  }
-                ],
-                "activityDescription": "Easiest",
-                "locationDescription": "The trail begins at Warm Creek picnic area and ends in Silver Gate, Montana.",
-                "doFeesApply": "false",
-                "longDescription": "<p>The Bannock Ski Trail is a 2 mile (3.2 km) easy ski that follows the old road bed that once used to supply the mining town of Cooke City, Montana. Begin at Warm Creek picnic area, one mile west of the Northeast Entrance. This trail takes its name from the Bannock band of the Shoshone, who used this route to reach the buffalo grounds of the Great Plains. After crossing Soda Butte Creek, the terrain is mostly flat and the trail traverses open meadows and mixed conifer forests. You will reach the North Absaroka Wilderness approximately one mile (1.6 km) from the trailhead. At two miles (3.2 km) you come to Silver Gate, Montana. From here the road bed is used as a snowmobile route and is good skiing to Cooke City, 3 miles (4.8 km) to the east.</p>\n\n<p><b>Notes:</b> Bison and elk frequent this trail. Federal regulations require you to stay at least 100 yards (91 m) away from bears and wolves, and at least 25 yards (23 m) away from bison and all other wild animals.</p>\n\n<p>Check out the<a href=\"/thingstodo/yell-bannock-ski-trail.htm#Details\" id=\"CP___PAGEID=5744528,yell-bannock-ski-trail.htm#Details,30639|\"> ski trail details and accessibility information</a> at the bottom of this page.</p>",
-                "reservationDescription": "",
-                "season": [
-                  "Winter"
-                ],
-                "topics": [
-                  {
-                    "id": "5BE55D7F-BDB6-4E3D-AC35-2D8EBB974417",
-                    "name": "Trails"
-                  }
-                ],
-                "durationDescription": "The duration will vary depending on fitness level, snow conditions, and length of time spent along the trail.",
-                "arePetsPermitted": "false",
-                "timeOfDay": [
-                  "Day"
-                ],
-                "title": "Bannock Ski Trail",
-                "latitude": "",
-                "shortDescription": "The Bannock Ski Trail is a 2 mile (3.2 km) easy ski that follows the old road bed that once used to supply the mining town of Cooke City, Montana.",
-                "duration": "1-2 Hours",
-                "relevanceScore": 1,
-                "tags": [
-                  "Yellowstone National Park",
-                  "Yellowstone National Park ski trail",
-                  "ski trail",
-                  "snowshoe trail",
-                  "snowshoeing",
-                  "cross country skiing",
-                  "Northeast Area",
-                  "easy ski",
-                  "forested trail",
-                  "mountains",
-                  "recreation",
-                  "winter recreation"
-                ]
-              }
-            ]
-          }
+            }
+          },
+          "example": [
+            {
+              "location": "Northeast Area",
+              "seasonDescription": "",
+              "accessibilityInformation": "<p>This skier-tracked easy trail follows a fairly flat old road after crossing a narrow bridge over Soda Butte Creek at the trailhead. The trail elevation gain/loss is 132 feet. Service dogs allowed with backcountry access permit.</p>",
+              "longitude": "",
+              "geometryPoiId": "8793be28-0d54-493f-8556-877e7ecbe937",
+              "relatedParks": [
+                {
+                  "states": "ID,MT,WY",
+                  "fullName": "Yellowstone National Park",
+                  "url": "https://www.nps.gov/yell/index.htm",
+                  "parkCode": "yell",
+                  "designation": "National Park",
+                  "name": "Yellowstone"
+                }
+              ],
+              "isReservationRequired": "false",
+              "ageDescription": "",
+              "url": "https://www.nps.gov/thingstodo/yell-bannock-ski-trail.htm",
+              "petsDescription": "Qualified service animals are welcome throughout the park and in all park facilities. However, they must be leashed and under your control at all times. This trail requires a backcountry access pass for service animals.<br />\n<br />\n<br />\n ",
+              "timeOfDayDescription": "",
+              "images": [
+                {
+                  "credit": "",
+                  "crops": [
+                    {
+                      "aspectRatio": "3",
+                      "url": "https://www.nps.gov/common/uploads/cropped_image/primary/20970C88-BB81-37F7-5FB606A6D4A87D9B.jpeg"
+                    },
+                    {
+                      "aspectRatio": "1",
+                      "url": "https://www.nps.gov/common/uploads/cropped_image/secondary/20970C88-BB81-37F7-5FB606A6D4A87D9B.jpeg"
+                    }
+                  ],
+                  "altText": "The Bannock Trail is a mostly flat through mature forest.",
+                  "title": "",
+                  "caption": "",
+                  "url": "https://www.nps.gov/common/uploads/cropped_image/20970C88-BB81-37F7-5FB606A6D4A87D9B.jpeg"
+                }
+              ],
+              "feeDescription": "",
+              "id": "8B175753-D37B-4DD5-BF96-00383F7BB46C",
+              "age": "",
+              "relatedOrganizations": [],
+              "arePetsPermittedWithRestrictions": "false",
+              "activities": [
+                {
+                  "id": "F9B1D433-6B86-4804-AED7-B50A519A3B7C",
+                  "name": "Skiing"
+                }
+              ],
+              "activityDescription": "Easiest",
+              "locationDescription": "The trail begins at Warm Creek picnic area and ends in Silver Gate, Montana.",
+              "doFeesApply": "false",
+              "longDescription": "<p>The Bannock Ski Trail is a 2 mile (3.2 km) easy ski that follows the old road bed that once used to supply the mining town of Cooke City, Montana. Begin at Warm Creek picnic area, one mile west of the Northeast Entrance. This trail takes its name from the Bannock band of the Shoshone, who used this route to reach the buffalo grounds of the Great Plains. After crossing Soda Butte Creek, the terrain is mostly flat and the trail traverses open meadows and mixed conifer forests. You will reach the North Absaroka Wilderness approximately one mile (1.6 km) from the trailhead. At two miles (3.2 km) you come to Silver Gate, Montana. From here the road bed is used as a snowmobile route and is good skiing to Cooke City, 3 miles (4.8 km) to the east.</p>\n\n<p><b>Notes:</b> Bison and elk frequent this trail. Federal regulations require you to stay at least 100 yards (91 m) away from bears and wolves, and at least 25 yards (23 m) away from bison and all other wild animals.</p>\n\n<p>Check out the<a href=\"/thingstodo/yell-bannock-ski-trail.htm#Details\" id=\"CP___PAGEID=5744528,yell-bannock-ski-trail.htm#Details,30639|\"> ski trail details and accessibility information</a> at the bottom of this page.</p>",
+              "reservationDescription": "",
+              "season": [
+                "Winter"
+              ],
+              "topics": [
+                {
+                  "id": "5BE55D7F-BDB6-4E3D-AC35-2D8EBB974417",
+                  "name": "Trails"
+                }
+              ],
+              "durationDescription": "The duration will vary depending on fitness level, snow conditions, and length of time spent along the trail.",
+              "arePetsPermitted": "false",
+              "timeOfDay": [
+                "Day"
+              ],
+              "title": "Bannock Ski Trail",
+              "latitude": "",
+              "shortDescription": "The Bannock Ski Trail is a 2 mile (3.2 km) easy ski that follows the old road bed that once used to supply the mining town of Cooke City, Montana.",
+              "duration": "1-2 Hours",
+              "relevanceScore": 1,
+              "tags": [
+                "Yellowstone National Park",
+                "Yellowstone National Park ski trail",
+                "ski trail",
+                "snowshoe trail",
+                "snowshoeing",
+                "cross country skiing",
+                "Northeast Area",
+                "easy ski",
+                "forested trail",
+                "mountains",
+                "recreation",
+                "winter recreation"
+              ]
+            }
+          ]
         },
         "limit": {
           "type": "string",
@@ -8412,22 +8479,22 @@
                 "description": "Name of the topic",
                 "example": "Animals"
               }
+            }
+          },
+          "example": [
+            {
+              "id": "F40AC1EE-420B-457B-B519-EC6EE5280F0C",
+              "name": "Animals"
             },
-            "example": [
-              {
-                "id": "F40AC1EE-420B-457B-B519-EC6EE5280F0C",
-                "name": "Animals"
-              },
-              {
-                "id": "D7EDE8D5-96B9-42AA-AE9F-DD469229F6AD",
-                "name": "Archeology"
-              },
-              {
-                "id": "3B611BAB-083E-4CC0-8238-862499120FD9",
-                "name": "Arctic"
-              }
-            ]
-          }
+            {
+              "id": "D7EDE8D5-96B9-42AA-AE9F-DD469229F6AD",
+              "name": "Archeology"
+            },
+            {
+              "id": "3B611BAB-083E-4CC0-8238-862499120FD9",
+              "name": "Arctic"
+            }
+          ]
         },
         "limit": {
           "type": "string",
@@ -9372,7 +9439,15 @@
                 "items": {
                   "type": "string"
                 },
-                "example": "\"Maine\", \"webcam\", \"peregrine falcon\", \"ranger programs\", \"Loon\", \"virtual activity\", \"Wild Gardens of Acadia\""
+                "example": [
+                  "Maine",
+                  "webcam",
+                  "peregrine falcon",
+                  "ranger programs",
+                  "Loon",
+                  "virtual activity",
+                  "Wild Gardens of Acadia"
+                ]
               },
               "latitude": {
                 "type": "number",
