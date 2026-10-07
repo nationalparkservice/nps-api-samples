@@ -7,7 +7,7 @@
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_URL => $dataURL,
 		CURLOPT_USERAGENT => $_SERVER['HTTP_USER_AGENT'],
-		CURLOPT_HTTPHEADER => array('Authorization: INSERT-API-KEY-HERE')
+		CURLOPT_HTTPHEADER => array('X-Api-Key: INSERT-API-KEY-HERE')
 	));
 	// Send the request & save response to $response
 	$response = curl_exec($curl);
