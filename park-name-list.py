@@ -3,7 +3,7 @@ import urllib.request, json
 # Configure API request
 # Note limit parameter is arbitrary value greater than total number of NPS sites
 endpoint = "https://developer.nps.gov/api/v1/parks?limit=600"
-HEADERS = {"Authorization":"INSERT-API-KEY-HERE"}
+HEADERS = {"X-Api-Key":"INSERT-API-KEY-HERE"}
 req = urllib.request.Request(endpoint,headers=HEADERS)
 
 # Execute request and parse response
